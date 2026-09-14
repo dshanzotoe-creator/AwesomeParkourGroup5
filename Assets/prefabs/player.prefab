@@ -9,13 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6651372724932812068}
-  - component: {fileID: 3645797006113013044}
-  - component: {fileID: 4543902265709636465}
   - component: {fileID: 5194476973702831266}
   - component: {fileID: 9057244338192223192}
   - component: {fileID: 457780702994425018}
-  - component: {fileID: 5196367051875153373}
   - component: {fileID: 5567888487486342538}
+  - component: {fileID: 7249125949253378764}
+  - component: {fileID: 836554927594554859}
+  - component: {fileID: 775574279603826980}
+  - component: {fileID: 5986078091194243802}
   - component: {fileID: 9140593363871748984}
   m_Layer: 0
   m_Name: player
@@ -33,38 +34,12 @@ Transform:
   m_GameObject: {fileID: 45349172941968604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.6829035, y: -0.0000000047472213, z: -16.783691}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3645797006113013044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18e04542fbfe9d42a5cd3ba1bb2b4d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  Health: 0
-  Speed: 1
---- !u!114 &4543902265709636465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66bedd9e3486b5e478e35c613bb0b934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::movement
 --- !u!143 &5194476973702831266
 CharacterController:
   m_ObjectHideFlags: 0
@@ -143,21 +118,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 5567888487486342538}
---- !u!114 &5196367051875153373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b40a355f240cea4aaff23caf81d3eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::inputManager
-  MovementInput: {x: 0, y: 0}
-  RawCameraMovement: {x: 0, y: 0}
-  MouseSentitivity: 0.2
 --- !u!20 &5567888487486342538
 Camera:
   m_ObjectHideFlags: 0
@@ -209,6 +169,59 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &7249125949253378764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e322c127b8185d48aa09e1274fc30e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movement
+--- !u!114 &836554927594554859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5048e9523396d2c4cb5a905c194f3b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerFunctions
+--- !u!114 &775574279603826980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3886a5e0f2b3d2439414c68f15f91f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  Health: 0
+  Speed: 0
+--- !u!114 &5986078091194243802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b4e33759dab7a469a2c73f97f2cd65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputManager
+  MovementInput: {x: 0, y: 0}
+  RawCameraMovement: {x: 0, y: 0}
+  MouseSentitivity: 0.2
 --- !u!114 &9140593363871748984
 MonoBehaviour:
   m_ObjectHideFlags: 0
