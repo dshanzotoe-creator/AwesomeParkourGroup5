@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 96668190}
   - component: {fileID: 96668189}
   - component: {fileID: 96668188}
+  - component: {fileID: 96668192}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -225,12 +226,29 @@ Transform:
   m_GameObject: {fileID: 96668187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.35, z: 0.5}
-  m_LocalScale: {x: 13.91205, y: 1, z: 14.765685}
+  m_LocalPosition: {x: 4.12, y: 0.35, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &96668192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96668187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfafa76f5d064643817f95ac1f5627a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformMovementManager
+  radius: 5
+  speed: 2
+  frequency: 1
+  amplitude: 0.9
+  movementTypeNumber: 1
 --- !u!1 &1638091441
 GameObject:
   m_ObjectHideFlags: 0
