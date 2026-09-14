@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 888136879}
   - component: {fileID: 888136878}
   m_Layer: 0
-  m_Name: Shadow
+  m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -643,7 +643,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 59efb01e9f96014448cc010099158d01, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -690,6 +690,7 @@ GameObject:
   - component: {fileID: 1981327415}
   - component: {fileID: 1981327420}
   - component: {fileID: 1981327421}
+  - component: {fileID: 1981327422}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Pickup
@@ -756,7 +757,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1bba4b3fb9e3ee74280361b5b3f8575f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -797,7 +798,7 @@ Transform:
   m_GameObject: {fileID: 1981327414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: -7.30765}
+  m_LocalPosition: {x: 0, y: -0, z: -16.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -844,6 +845,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupMovement
   maxSpeedBoost: 6.5
+--- !u!114 &1981327422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981327414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef080b80c7fe81a43880a6baff84c581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  shouldPulse: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

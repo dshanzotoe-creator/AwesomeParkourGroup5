@@ -13,10 +13,10 @@ public class Pickup : MonoBehaviour
     bool pickedUp = false;
     #endregion
 
-    void Start()
+    void Awake()
     {
         player = GameObject.Find("Player");
-        pickupMovement = GetComponent<PickupMovement>();
+        pickupMovement = gameObject.GetComponent<PickupMovement>();
         switch (type)
         {
             case Type.idle:
