@@ -1,7 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlatformMovementManager : MonoBehaviour
 {
+    //Darren Scott
+    
+    //A short guide on how to use the Movement Manager. 
+   
+
+
+
     Vector3 startpos;
 
     Vector3 centerPoint;
