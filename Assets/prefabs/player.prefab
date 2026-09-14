@@ -178,9 +178,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 45349172941968604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e322c127b8185d48aa09e1274fc30e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b40a355f240cea4aaff23caf81d3eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  MovementInput: {x: 0, y: 0}
+  RawCameraMovement: {x: 0, y: 0}
+  MouseSentitivity: 0.2
 --- !u!114 &836554927594554859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +193,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 45349172941968604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5048e9523396d2c4cb5a905c194f3b7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 66bedd9e3486b5e478e35c613bb0b934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerFunctions
 --- !u!114 &775574279603826980
@@ -202,7 +205,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 45349172941968604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3886a5e0f2b3d2439414c68f15f91f5, type: 3}
+  m_Script: {fileID: 11500000, guid: f18e04542fbfe9d42a5cd3ba1bb2b4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   Health: 0
@@ -216,12 +219,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 45349172941968604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1b4e33759dab7a469a2c73f97f2cd65, type: 3}
+  m_Script: {fileID: 11500000, guid: 70c9a702d178e054f8c7480d3d55b4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
-  MovementInput: {x: 0, y: 0}
-  RawCameraMovement: {x: 0, y: 0}
-  MouseSentitivity: 0.2
 --- !u!114 &9140593363871748984
 MonoBehaviour:
   m_ObjectHideFlags: 0
