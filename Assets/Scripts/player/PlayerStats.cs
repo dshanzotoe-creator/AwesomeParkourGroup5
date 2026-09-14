@@ -11,13 +11,13 @@ public class PlayerStats : MonoBehaviour
     const float MAXHEALTH = 100;
     void Awake()
     {
-        _health = 100f;
-        _speed = 1f;
+
 
     }
     void Start()
     {
-        
+        _health = 100f;
+        _speed = 1f;
     }
 
     // Update is called once per frame

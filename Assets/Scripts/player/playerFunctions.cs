@@ -4,7 +4,7 @@ public class playerFunctions : MonoBehaviour
 {
 
     PlayerStats playerStats;
-    void awake()
+    void Awake()
     {
         playerStats = GetComponent<PlayerStats>();
     }
