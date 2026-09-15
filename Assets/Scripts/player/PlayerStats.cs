@@ -5,10 +5,15 @@ public class PlayerStats : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private float _health;
     private float _speed;
+    private float _jump_force;
+    private float _sprint_speed;
 
+    private float _gravity;
     public float Health;
     public float Speed;
     const float MAXHEALTH = 100;
+
+
     void Awake()
     {
 
@@ -17,7 +22,10 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         _health = 100f;
-        _speed = 1f;
+        _speed = 0f;
+        _sprint_speed = 0f;
+        _jump_force = 10f;
+        _gravity = -20f;
     }
 
     // Update is called once per frame
@@ -46,4 +54,14 @@ public class PlayerStats : MonoBehaviour
         return _speed;
     }
 
+
+    public float GetJumpForce()
+    {
+        return _jump_force;
+    }
+
+    public float GetGravity()
+    {
+        return _gravity;
+    }
 }

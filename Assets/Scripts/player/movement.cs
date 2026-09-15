@@ -1,5 +1,8 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class Movement : MonoBehaviour
 {
@@ -8,10 +11,14 @@ public class Movement : MonoBehaviour
 
     private PlayerStats playerStats;
     private Camera camera;
+
+    private SphereCollider groundCheck;
+
+
     private float lookAngle = 0f;
     private float lookAngleLimit = 90f;
 
-    private Vector2 moveDirection;
+    private Vector3 moveDirection = Vector3.zero;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -19,26 +26,29 @@ public class Movement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         playerStats = GetComponent<PlayerStats>();
         camera = GetComponent<Camera>();
+        groundCheck = GetComponent<SphereCollider>();
 
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveDirection.Set(inputManager.MovementInput.y, inputManager.MovementInput.x);
+        
 
 
-        controller.Move(moveDirection * Time.deltaTime * playerStats.GetSpeed());
-
-
-        Debug.Log(inputManager.RawCameraMovement);
+       
         HandleCameraMovement(inputManager.RawCameraMovement);
 
+        HandleMovement();
 
+        if (controller.isGrounded)
+        {
+            inputManager.IsJumping = false;
+        }
         
     }
 
@@ -50,6 +60,42 @@ public class Movement : MonoBehaviour
         lookAngle = Mathf.Clamp(lookAngle, -lookAngleLimit, lookAngleLimit);
         camera.transform.localRotation = Quaternion.Euler(lookAngle,0,0);
         transform.rotation *= Quaternion.Euler(0, rawCameraMovement.x * inputManager.MouseSentitivity,0);
-        Debug.Log(rawCameraMovement);
+        
+    }
+
+
+    public void HandleMovement() 
+    {
+
+        if (inputManager.IsSprinting) {
+            playerStats.SetSpeed(10f);
+        }
+        else
+        {
+            playerStats.SetSpeed(3f);
+        }
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+
+        float oldY = moveDirection.y;
+
+        Vector2 newSpeed = new Vector2(inputManager.MovementInput.y * playerStats.GetSpeed(), inputManager.MovementInput.x * playerStats.GetSpeed());
+
+        moveDirection = (forward * newSpeed.x) + (right * newSpeed.y);
+        if(inputManager.IsJumping && controller.isGrounded)
+        {
+            moveDirection.y = playerStats.GetJumpForce();
+        }
+        else
+        {
+            moveDirection.y = oldY;
+        }
+
+        if (!controller.isGrounded)
+        {
+            moveDirection.y += playerStats.GetGravity() * Time.deltaTime;
+        }
+
+            controller.Move(moveDirection * Time.deltaTime);
     }
 }
