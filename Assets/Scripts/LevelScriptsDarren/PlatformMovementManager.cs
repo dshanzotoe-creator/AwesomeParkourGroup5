@@ -16,7 +16,7 @@ public class PlatformMovementManager : MonoBehaviour
 
     [SerializeField] float radius = 5;
 
-    [SerializeField] float speed = 2;
+    [SerializeField] float orbitSpeed = 2;
 
     private float currentAngle = 0; 
 
@@ -74,7 +74,7 @@ public class PlatformMovementManager : MonoBehaviour
     {
         float newY = startpos.y + Mathf.Cos(Time.time * frequency) * amplitude;
 
-        transform.position = new Vector3(startpos.x, newY, startpos.y);
+        transform.position = new Vector3(startpos.x, newY, startpos.z);
     }
     void BackAndForthMovement()
     {
@@ -93,7 +93,7 @@ public class PlatformMovementManager : MonoBehaviour
 
     void CircularOrbit()
     {
-        currentAngle += speed * Time.deltaTime;
+        currentAngle += orbitSpeed * Time.deltaTime;
 
         float xOffset = Mathf.Cos(currentAngle) * radius;
         float zOffset = Mathf.Sin(currentAngle) * radius;

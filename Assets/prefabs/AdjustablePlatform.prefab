@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9181709424171437486}
   - component: {fileID: 7471765073598203989}
   - component: {fileID: 8130735917833124788}
-  - component: {fileID: 2613668947038353272}
+  - component: {fileID: -5775318112774065327}
   m_Layer: 0
   m_Name: AdjustablePlatform
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2613668947038353272
+--- !u!114 &-5775318112774065327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,8 +122,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3206117680270127328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fb53bad1974929419c3d1c1be27b2e7, type: 3}
+  m_Script: {fileID: 11500000, guid: cbfafa76f5d064643817f95ac1f5627a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlatformCollisionMoveManager
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformMovementManager
+  radius: 5
+  speed: 2
+  frequency: 0.85
+  amplitude: 0.6
   movementTypeNumber: 0
-  fallSpeed: 5
