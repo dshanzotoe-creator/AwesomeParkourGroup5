@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(PickupMovement))]
+[RequireComponent(typeof(PickupMovementDynamic))]
 public class Pickup : MonoBehaviour
 {
     #region variables
     [SerializeField] Type type;
     GameObject player;
-    PickupMovement pickupMovement;
+    PickupMovementDynamic pickupMovement;
     float distanceToPlayer = 0;
     float minimumDistance = 0; // to player
     bool pickedUp = false;
@@ -16,25 +16,43 @@ public class Pickup : MonoBehaviour
     void Awake()
     {
         player = GameObject.Find("Player");
-        pickupMovement = gameObject.GetComponent<PickupMovement>();
+        pickupMovement = gameObject.GetComponent<PickupMovementDynamic>();
         switch (type)
         {
             case Type.idle:
                 minimumDistance = 0;
                 break;
-            case Type.moving:
+            case Type.movingDynamic:
                 minimumDistance = 7.5f;
-                StartCoroutine(CheckDistance());
+                StartCoroutine(CheckDistanceDynamic());
+                break;
+            case Type.movingAnchor:
+                minimumDistance = 7.5f;
+                StartCoroutine(CheckDistanceAnchor());
                 break;
         }
     }
 
     public void HandlePickup()
     {
+        // decrement via pickupcounter
         Destroy(gameObject);
     }
 
-    IEnumerator CheckDistance()
+    IEnumerator CheckDistanceDynamic()
+    {
+        while (!pickedUp)
+        {
+            distanceToPlayer = Vector3.Distance(gameObject.transform.position, player.transform.position);
+            if (!pickupMovement.IsMovingFromPlayer() && distanceToPlayer < minimumDistance)
+            {
+                pickupMovement.StartMovingFromPlayer();
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator CheckDistanceAnchor()
     {
         while (!pickedUp)
         {
@@ -56,6 +74,7 @@ public class Pickup : MonoBehaviour
     enum Type
     {
         idle,
-        moving
+        movingDynamic,
+        movingAnchor
     }
 }
