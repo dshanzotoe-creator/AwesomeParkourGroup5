@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour
 
     public Vector2 MovementInput;
     public Vector2 RawCameraMovement;
- 
+    
 
     public float MouseSentitivity = 0.2f;
     
