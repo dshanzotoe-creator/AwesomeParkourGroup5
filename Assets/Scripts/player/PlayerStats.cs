@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     private float _jump_force;
     private float _sprint_speed;
 
+    private float _stamina;
     private float _gravity;
     public float Health;
     public float Speed;
@@ -26,6 +27,7 @@ public class PlayerStats : MonoBehaviour
         _sprint_speed = 0f;
         _jump_force = 10f;
         _gravity = -20f;
+        _stamina = 0f;
     }
 
     // Update is called once per frame
@@ -63,5 +65,10 @@ public class PlayerStats : MonoBehaviour
     public float GetGravity()
     {
         return _gravity;
+    }
+
+    public float GetStamina()
+    {
+        return _stamina;
     }
 }

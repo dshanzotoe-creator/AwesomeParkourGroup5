@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
 
 
        
-        HandleCameraMovement(inputManager.RawCameraMovement);
+        HandleCameraMovement();
 
         HandleMovement();
 
@@ -52,14 +52,14 @@ public class Movement : MonoBehaviour
         
     }
 
-    private void HandleCameraMovement(Vector2 rawCameraMovement)
+    private void HandleCameraMovement()
     {
 
-        lookAngle += -rawCameraMovement.y * inputManager.MouseSentitivity;
+        lookAngle += -inputManager.RawCameraMovement.y * inputManager.MouseSentitivity;
 
         lookAngle = Mathf.Clamp(lookAngle, -lookAngleLimit, lookAngleLimit);
         camera.transform.localRotation = Quaternion.Euler(lookAngle,0,0);
-        transform.rotation *= Quaternion.Euler(0, rawCameraMovement.x * inputManager.MouseSentitivity,0);
+        transform.rotation *= Quaternion.Euler(0, inputManager.RawCameraMovement.x * inputManager.MouseSentitivity,0);
         
     }
 
