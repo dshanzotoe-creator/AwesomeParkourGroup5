@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(PickupMovementDynamic))]
 public class Pickup : MonoBehaviour
 {
     #region variables

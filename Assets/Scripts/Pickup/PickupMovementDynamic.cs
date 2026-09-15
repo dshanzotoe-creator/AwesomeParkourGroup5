@@ -29,7 +29,6 @@ public class PickupMovementDynamic : MonoBehaviour
     {
         while (pickupScript.InRange())
         {
-            Debug.Log("a");
             BoostSpeedWhileInRadius();
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -Time.deltaTime * speedBoost);
             yield return new WaitForEndOfFrame();
