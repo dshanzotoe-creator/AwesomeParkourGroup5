@@ -1,13 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(PickupMovementDynamic))]
 public class Pickup : MonoBehaviour
 {
     #region variables
     [SerializeField] Type type;
     GameObject player;
-    PickupMovementDynamic pickupMovement;
+    PickupMovement pickupMovement;
     float distanceToPlayer = 0;
     float minimumDistance = 0; // to player
     bool pickedUp = false;
@@ -16,19 +15,15 @@ public class Pickup : MonoBehaviour
     void Awake()
     {
         player = GameObject.Find("Player");
-        pickupMovement = gameObject.GetComponent<PickupMovementDynamic>();
+        pickupMovement = gameObject.GetComponent<PickupMovement>();
         switch (type)
         {
             case Type.idle:
                 minimumDistance = 0;
                 break;
-            case Type.movingDynamic:
+            case Type.moving:
                 minimumDistance = 7.5f;
-                StartCoroutine(CheckDistanceDynamic());
-                break;
-            case Type.movingAnchor:
-                minimumDistance = 7.5f;
-                StartCoroutine(CheckDistanceAnchor());
+                StartCoroutine(CheckDistance());
                 break;
         }
     }
@@ -39,25 +34,12 @@ public class Pickup : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator CheckDistanceDynamic()
+    IEnumerator CheckDistance()
     {
         while (!pickedUp)
         {
             distanceToPlayer = Vector3.Distance(gameObject.transform.position, player.transform.position);
-            if (!pickupMovement.IsMovingFromPlayer() && distanceToPlayer < minimumDistance)
-            {
-                pickupMovement.StartMovingFromPlayer();
-            }
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
-    IEnumerator CheckDistanceAnchor()
-    {
-        while (!pickedUp)
-        {
-            distanceToPlayer = Vector3.Distance(gameObject.transform.position, player.transform.position);
-            if (!pickupMovement.IsMovingFromPlayer() && distanceToPlayer < minimumDistance)
+            if (!pickupMovement.IsMoving() && distanceToPlayer < minimumDistance)
             {
                 pickupMovement.StartMovingFromPlayer();
             }
@@ -74,7 +56,6 @@ public class Pickup : MonoBehaviour
     enum Type
     {
         idle,
-        movingDynamic,
-        movingAnchor
+        moving
     }
 }
