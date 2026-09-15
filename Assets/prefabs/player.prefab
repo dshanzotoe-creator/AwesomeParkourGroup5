@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 9057244338192223192}
   - component: {fileID: 457780702994425018}
   - component: {fileID: 5567888487486342538}
-  - component: {fileID: 7249125949253378764}
-  - component: {fileID: 836554927594554859}
-  - component: {fileID: 775574279603826980}
-  - component: {fileID: 5986078091194243802}
   - component: {fileID: 9140593363871748984}
+  - component: {fileID: 1074086200755803031}
+  - component: {fileID: 3170258410030593566}
+  - component: {fileID: 1808910940005227573}
+  - component: {fileID: 3085336213760209458}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -169,59 +169,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &7249125949253378764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b40a355f240cea4aaff23caf81d3eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Movement
-  MovementInput: {x: 0, y: 0}
-  RawCameraMovement: {x: 0, y: 0}
-  MouseSentitivity: 0.2
---- !u!114 &836554927594554859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66bedd9e3486b5e478e35c613bb0b934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerFunctions
---- !u!114 &775574279603826980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18e04542fbfe9d42a5cd3ba1bb2b4d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  Health: 0
-  Speed: 0
---- !u!114 &5986078091194243802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c9a702d178e054f8c7480d3d55b4aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InputManager
 --- !u!114 &9140593363871748984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,3 +213,56 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1074086200755803031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac1d0ad5533b0d44eb659c37e9171cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputManager
+  MovementInput: {x: 0, y: 0}
+  RawCameraMovement: {x: 0, y: 0}
+  MouseSentitivity: 0.2
+--- !u!114 &3170258410030593566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c16bf322f68c646afafd58fddafbb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movement
+--- !u!114 &1808910940005227573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a281d600c81b444281a413a9ca98fcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerFunctions
+--- !u!114 &3085336213760209458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877a6013cba35cb4dad0de6e509d4b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  Health: 0
+  Speed: 0
