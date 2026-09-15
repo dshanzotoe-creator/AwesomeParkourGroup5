@@ -15,7 +15,8 @@ public class Movement : MonoBehaviour
     private SphereCollider groundCheck;
 
 
-    private float lookAngle = 0f;
+    private float lookAngleY = 0f;
+    private float lookAngleX = 0f;
     private float lookAngleLimit = 90f;
 
     private Vector3 moveDirection = Vector3.zero;
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour
     }
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -55,11 +56,12 @@ public class Movement : MonoBehaviour
     private void HandleCameraMovement()
     {
 
-        lookAngle += -inputManager.RawCameraMovement.y * inputManager.MouseSentitivity;
+        lookAngleY -= inputManager.CameraMovement.y;
+        lookAngleX += inputManager.CameraMovement.x;
+        lookAngleY = Mathf.Clamp(lookAngleY, -lookAngleLimit, lookAngleLimit);
 
-        lookAngle = Mathf.Clamp(lookAngle, -lookAngleLimit, lookAngleLimit);
-        camera.transform.localRotation = Quaternion.Euler(lookAngle,0,0);
-        transform.rotation *= Quaternion.Euler(0, inputManager.RawCameraMovement.x * inputManager.MouseSentitivity,0);
+        transform.localRotation = Quaternion.Euler(lookAngleY,0f,0f);
+        transform.rotation = Quaternion.Euler(lookAngleY,lookAngleX, 0);
         
     }
 

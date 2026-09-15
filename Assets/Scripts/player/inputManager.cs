@@ -13,16 +13,18 @@ public class InputManager : MonoBehaviour
     private InputAction jumpAction;
 
     private InputAction sprintAction;
+    private Vector2 rawCameraMovement;
 
     public Vector2 MovementInput;
-    public Vector2 RawCameraMovement;
+
+    public Vector2 CameraMovement;
 
     public bool IsJumping;
     public bool IsCrouching;
 
     public bool IsSprinting;
 
-    public float MouseSentitivity = 0.2f;
+    public float MouseSentitivity = 1f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -43,7 +45,8 @@ public class InputManager : MonoBehaviour
     }
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
     }
 
@@ -51,8 +54,10 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         MovementInput = movementAction.ReadValue<Vector2>();
-        RawCameraMovement =  Mouse.current.delta.ReadValue();
+        rawCameraMovement =  Mouse.current.delta.ReadValue();
 
+        CameraMovement.x = rawCameraMovement.x * MouseSentitivity;
+        CameraMovement.y = rawCameraMovement.y * MouseSentitivity;
     }
 
     private void Jumped(InputAction.CallbackContext _)
