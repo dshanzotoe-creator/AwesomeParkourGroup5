@@ -114,8 +114,9 @@ public class Movement : MonoBehaviour
 
         if (!controller.isGrounded) finalPlatformMovement.y = 0f; 
 
-        // controller.Move(Vector3.Lerp(controller.velocity ,moveDirection, 0.1f) * Time.deltaTime);
-        controller.Move((totalPlayerMovement + finalPlatformMovement));
+        //controller.Move(Vector3.Lerp(controller.velocity ,moveDirection, 0.1f) * Time.deltaTime);
+
+        controller.Move((totalPlayerMovement + finalPlatformMovement)); //This line applies both the player's movement and the platform's movement to the character controller. Only if there is actually a platform.
 
         platformMovementDelta = Vector3.zero; // Reset platform movement after applying it
 
