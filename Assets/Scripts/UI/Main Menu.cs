@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DeathScreen : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,15 +16,15 @@ public class DeathScreen : MonoBehaviour
     }
 
 
-    public void Retry()
+   public void StartGame()
     {
         SceneManager.LoadScene(1);
-        Time.timeScale = 1.0f;
+        
     }
 
-    public void Quit()
+    public void QuitGame()
     {
-        SceneManager.LoadScene(0);
-        Time.timeScale = 1.0f;
+        Application.Quit();
+        
     }
 }

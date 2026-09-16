@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
 
     private bool isStaminaDraining;
 
-    private float _stamina;
+    [SerializeField] private float _stamina;
     private float _gravity;
     public float Health;
     public float Speed;
@@ -31,7 +31,7 @@ public class PlayerStats : MonoBehaviour
         _sprint_speed = 0f;
         _jump_force = 10f;
         _gravity = -20f;
-        _stamina = 0f;
+        _stamina = MAXSTAMINA;
     }
 
     // Update is called once per frame
