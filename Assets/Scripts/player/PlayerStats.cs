@@ -37,9 +37,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_stamina < MAXSTAMINA && !isStaminaDraining){
-            _stamina += 0.05f;
-        }
+        RegenStamina();
     }
 
     public void SetHealth(float health)
@@ -48,6 +46,12 @@ public class PlayerStats : MonoBehaviour
         _health = Mathf.Clamp(_health, 0, MAXHEALTH);
     }
 
+    public void RegenStamina()
+    {
+            if (_stamina < MAXSTAMINA && !isStaminaDraining){
+            _stamina += 0.05f;
+            }   
+    }
     public float GetHealth() {
     return _health;
 
