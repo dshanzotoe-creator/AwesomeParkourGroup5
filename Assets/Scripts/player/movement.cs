@@ -17,6 +17,9 @@ public class Movement : MonoBehaviour
 
     private float lookAngleY = 0f;
     private float lookAngleX = 0f;
+    private float nearFoV = 70f;
+    private float farFoV = 90f;
+
     private float lookAngleLimit = 90f;
 
     private Vector3 moveDirection = Vector3.zero;
@@ -45,7 +48,7 @@ public class Movement : MonoBehaviour
         HandleCameraMovement();
 
         HandleMovement();
-
+        setRunningFoV();
         if (controller.isGrounded)
         {
             inputManager.IsJumping = false;
@@ -74,7 +77,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            playerStats.SetSpeed(3f);
+            playerStats.SetSpeed(5f);
         }
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
@@ -98,6 +101,19 @@ public class Movement : MonoBehaviour
             moveDirection.y += playerStats.GetGravity() * Time.deltaTime;
         }
 
-            controller.Move(moveDirection * Time.deltaTime);
+            controller.Move(Vector3.Lerp(controller.velocity ,moveDirection, 0.1f) * Time.deltaTime);
+    }
+
+    public void setRunningFoV()
+    {
+        if (inputManager.IsSprinting)
+        {
+            var currentFoV = camera.fieldOfView;
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, farFoV, 0.02f);     
+        }
+        else
+        {
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, nearFoV, 0.05f);
+        }
     }
 }
