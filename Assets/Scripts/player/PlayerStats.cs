@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -8,11 +9,14 @@ public class PlayerStats : MonoBehaviour
     private float _jump_force;
     private float _sprint_speed;
 
+    private bool isStaminaDraining;
+
     private float _stamina;
     private float _gravity;
     public float Health;
     public float Speed;
-    const float MAXHEALTH = 100;
+    const float MAXHEALTH = 100f;
+    const float MAXSTAMINA = 100f;
 
 
     void Awake()
@@ -33,7 +37,9 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_stamina < MAXSTAMINA && !isStaminaDraining){
+            _stamina += 0.05f;
+        }
     }
 
     public void SetHealth(float health)
