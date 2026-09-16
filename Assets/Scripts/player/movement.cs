@@ -40,8 +40,8 @@ public class Movement : MonoBehaviour
         
     }
 
-    // LateUpdate is called once per frame, after all Update functions have been called
-    void LateUpdate() 
+    //Update is called once per frame
+    void Update() 
     {
         
 
