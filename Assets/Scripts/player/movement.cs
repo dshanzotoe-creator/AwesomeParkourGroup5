@@ -23,6 +23,8 @@ public class Movement : MonoBehaviour
     private float lookAngleLimit = 90f;
 
     private Vector3 moveDirection = Vector3.zero;
+
+    private Vector3 platformMovementDelta = Vector3.zero;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -54,6 +56,11 @@ public class Movement : MonoBehaviour
             inputManager.IsJumping = false;
         }
         
+    }
+
+    public void SetPlatformMovement(Vector3 delta)
+    {
+        platformMovementDelta = delta;
     }
 
     private void HandleCameraMovement()
@@ -101,7 +108,17 @@ public class Movement : MonoBehaviour
             moveDirection.y += playerStats.GetGravity() * Time.deltaTime;
         }
 
-            controller.Move(Vector3.Lerp(controller.velocity ,moveDirection, 0.1f) * Time.deltaTime);
+        Vector3 totalPlayerMovement = moveDirection * Time.deltaTime;
+
+        Vector3 finalPlatformMovement = platformMovementDelta;
+
+        if (!controller.isGrounded) finalPlatformMovement.y = 0f; 
+
+        // controller.Move(Vector3.Lerp(controller.velocity ,moveDirection, 0.1f) * Time.deltaTime);
+        controller.Move((totalPlayerMovement + finalPlatformMovement));
+
+        platformMovementDelta = Vector3.zero; // Reset platform movement after applying it
+
     }
 
     public void setRunningFoV()
