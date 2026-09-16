@@ -1312,14 +1312,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_FlagBeam2
       objectReference: {fileID: 0}
-    - target: {fileID: 4612942013381384358, guid: bf0d3053c722e9c4b80b282acff90103, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e06b69e8d609f7544840fa25e2ccccc9, type: 2}
-    - target: {fileID: 6358108578561127113, guid: bf0d3053c722e9c4b80b282acff90103, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e06b69e8d609f7544840fa25e2ccccc9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
