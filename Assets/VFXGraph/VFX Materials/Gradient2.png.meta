@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5ccfd1bacf61593459d9108f8f06e8ac
+guid: 77a47263c336a734181b401c33ca993d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3087324678510791218
-    second: BeamPNG_0
+      213: 7973688440293310747
+    second: Gradient2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,8 +40,8 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BeamPNG_0
+      name: Gradient2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2048
-        height: 2048
+        width: 954
+        height: 954
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec5311fef8e9725d0800000000000000
-      internalID: -3087324678510791218
+      spriteID: b114259d36b38ae60800000000000000
+      internalID: 7973688440293310747
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BeamPNG_0: -3087324678510791218
+      Gradient2_0: 7973688440293310747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

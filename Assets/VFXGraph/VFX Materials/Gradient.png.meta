@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dc1ba4d060b904148ac908e62e3c7e16
+guid: 4eb395e7d70c1ae45978c7e06e8767e9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1717108640133756040
-    second: BeamPNG2_0
+      213: -6387141827742192153
+    second: Gradient_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BeamPNG2_0
+      name: Gradient_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2048
-        height: 2048
+        width: 954
+        height: 954
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87bc2181aca9b28e0800000000000000
-      internalID: -1717108640133756040
+      spriteID: 7ed236329505c57a0800000000000000
+      internalID: -6387141827742192153
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BeamPNG2_0: -1717108640133756040
+      Gradient_0: -6387141827742192153
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
