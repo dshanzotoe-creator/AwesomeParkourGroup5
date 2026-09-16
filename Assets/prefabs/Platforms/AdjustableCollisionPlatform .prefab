@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3206117680270127328
+--- !u!1 &62288080856840846
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7481114340415958329}
-  - component: {fileID: 9181709424171437486}
-  - component: {fileID: 7471765073598203989}
-  - component: {fileID: 8130735917833124788}
-  - component: {fileID: -5775318112774065327}
-  - component: {fileID: 9071355121515560440}
-  - component: {fileID: 92060327673342558}
+  - component: {fileID: 6337898707359612360}
+  - component: {fileID: 1797245308012716687}
+  - component: {fileID: 3222610219975280457}
+  - component: {fileID: 5981369130705671933}
+  - component: {fileID: 5077868000094642243}
+  - component: {fileID: 1912642954518506032}
   m_Layer: 0
-  m_Name: AdjustablePlatform
+  m_Name: 'AdjustableCollisionPlatform '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7481114340415958329
+--- !u!4 &6337898707359612360
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206117680270127328}
+  m_GameObject: {fileID: 62288080856840846}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.12, y: 0.35, z: 0.5}
+  m_LocalPosition: {x: -3.28186, y: 0, z: 8.91394}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9181709424171437486
+--- !u!33 &1797245308012716687
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206117680270127328}
+  m_GameObject: {fileID: 62288080856840846}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7471765073598203989
+--- !u!23 &3222610219975280457
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206117680270127328}
+  m_GameObject: {fileID: 62288080856840846}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -94,13 +93,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8130735917833124788
+--- !u!65 &5981369130705671933
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206117680270127328}
+  m_GameObject: {fileID: 62288080856840846}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -115,42 +114,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5775318112774065327
+--- !u!114 &5077868000094642243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206117680270127328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbfafa76f5d064643817f95ac1f5627a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlatformMovementManager
-  radius: 5
-  orbitSpeed: 2
-  frequency: 1
-  amplitude: 3
-  movementTypeNumber: 4
---- !u!114 &9071355121515560440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206117680270127328}
+  m_GameObject: {fileID: 62288080856840846}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 439e72b486bc1d546b42cb5136f5e5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttatchToPlatform
---- !u!65 &92060327673342558
+--- !u!65 &1912642954518506032
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206117680270127328}
+  m_GameObject: {fileID: 62288080856840846}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

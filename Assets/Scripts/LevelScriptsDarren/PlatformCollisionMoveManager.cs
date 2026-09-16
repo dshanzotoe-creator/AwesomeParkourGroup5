@@ -40,6 +40,7 @@ public class PlatformCollisionMoveManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !moving)
         {
+            Debug.Log("Player has landed on the platform.");
             ChooseMovement(movementTypeNumber);
         }
             
