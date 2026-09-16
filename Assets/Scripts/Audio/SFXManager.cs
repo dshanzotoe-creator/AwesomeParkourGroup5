@@ -20,36 +20,53 @@ public class SFXManager : MonoBehaviour
     }
 
     public void PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
-    {
-        AudioSource audioSource = Instantiate(sfxObject, spawnTransform.position, Quaternion.identity);        // Spawn in gameObject
+    { 
+        // Spawn in gameObject
+        AudioSource audioSource = Instantiate(sfxObject, spawnTransform.position, Quaternion.identity);
 
-        audioSource.clip = audioClip;        // Assign audioClip that is being passed in above
+        // Assign audioClip that is being passed in above
+        audioSource.clip = audioClip;
 
-        audioSource.volume = volume;        // Assign volume
+        // Assign volume
+        audioSource.volume = volume;
 
-        audioSource.Play();        // Play sound
+        // Play sound
+        audioSource.Play();
 
-        float clipLength = audioSource.clip.length;        // Get length of SFX
+        // Get length of SFX
+        float clipLength = audioSource.clip.length;
 
-        Destroy(audioSource.gameObject, clipLength);        // Destroy SFX after it's done playing
+         // Destroy SFX after it's done playing
+        Destroy(audioSource.gameObject, clipLength);
     }
 
     public void PlayRandomSFXClip(AudioClip[] audioClip, Transform spawnTransform, float volume)
     {
-        int rand = Random.Range(0, audioClip.Length);        // Assign a random index
+        // Assign a random index
+        int rand = Random.Range(0, audioClip.Length);
 
-        float randomPitch = Random.Range(lowPitchRange, highPitchRange);        // Slightly changes the pitch of the random sound to create variety
+        // Slightly changes the pitch of the random sound to create variety
+        float randomPitch = Random.Range(lowPitchRange, highPitchRange);
 
-        AudioSource audioSource = Instantiate(sfxObject, spawnTransform.position, Quaternion.identity);        // Spawn in gameObject
+         // Spawn in gameObject
+        AudioSource audioSource = Instantiate(sfxObject, spawnTransform.position, Quaternion.identity);
 
-        audioSource.clip = audioClip[rand];        // Assign audioClip randomly selected thanks to the int rand above
+         // Assign audioClip randomly selected thanks to the int rand above
+        audioSource.clip = audioClip[rand];
 
-        audioSource.volume = volume;        // Assign volume
+        // Assign random pitch to played audioClip
+        audioSource.pitch = randomPitch;
 
-        audioSource.Play();        // Play sound
+         // Assign volume
+        audioSource.volume = volume;
 
-        float clipLength = audioSource.clip.length;        // Get length of SFX
+        // Play sound
+        audioSource.Play();
 
-        Destroy(audioSource.gameObject, clipLength);        // Destroy SFX after it's done playing
+         // Get length of SFX
+        float clipLength = audioSource.clip.length;
+
+         // Destroy SFX after it's done playing
+        Destroy(audioSource.gameObject, clipLength);
     }
 }

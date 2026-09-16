@@ -357,6 +357,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 3170258410030593566, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: breathingSoundClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170258410030593566, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: 'breathingSoundClips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: adcd9b8f72575964aadc8fec40d4e86c, type: 3}
+    - target: {fileID: 3170258410030593566, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: 'breathingSoundClips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 66cfe2b25c5cb134fb4853453376c92e, type: 3}
+    - target: {fileID: 3170258410030593566, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: 'breathingSoundClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b2114be10276b0a4b90faa1c5ff7fb00, type: 3}
+    - target: {fileID: 3170258410030593566, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: 'breathingSoundClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b3cfbedf36d4364689d3220ce0557a3, type: 3}
+    - target: {fileID: 3170258410030593566, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: 'breathingSoundClips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: fdaa96b276254ee4494e246e85c993d4, type: 3}
     - target: {fileID: 6651372724932812068, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -432,6 +456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXManager
   sfxObject: {fileID: 8827942144644660741, guid: 687de44e4a76c084c993b630f5db62ff, type: 3}
+  lowPitchRange: 0.95
+  highPitchRange: 1.05
 --- !u!4 &1451549913
 Transform:
   m_ObjectHideFlags: 0
