@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5981369130705671933}
   - component: {fileID: 5077868000094642243}
   - component: {fileID: 1912642954518506032}
+  - component: {fileID: 5436368384920001398}
   m_Layer: 0
   m_Name: 'AdjustableCollisionPlatform '
   m_TagString: Untagged
@@ -147,3 +148,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.4653943, z: 1}
   m_Center: {x: 0, y: 0.23269743, z: 0}
+--- !u!114 &5436368384920001398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62288080856840846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb53bad1974929419c3d1c1be27b2e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformCollisionMoveManager
+  movementTypeNumber: 0
+  fallSpeed: 5

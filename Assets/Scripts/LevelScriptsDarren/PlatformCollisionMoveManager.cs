@@ -33,33 +33,17 @@ public class PlatformCollisionMoveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Spin();
+        
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") && !moving)
+        if (other.gameObject.CompareTag("Player") && !moving)
         {
             Debug.Log("Player has landed on the platform.");
             ChooseMovement(movementTypeNumber);
         }
-            
     }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && moving && spinRoutine != null)
-        {
-            if (spinRoutine != null)
-            {
-                StopCoroutine(spinRoutine);
-                spinRoutine = null; // Reset the reference safely
-            }
-
-            moving = false;
-        }
-    }
-
     IEnumerator FallAfterPlayerLanding()
     {
         float timeBeforeFall = 1.5f;
@@ -96,7 +80,7 @@ public class PlatformCollisionMoveManager : MonoBehaviour
         float timeBeforeRotation = 1.5f;
         moving = true;
         yield return new WaitForSeconds(timeBeforeRotation);
-        float rotationSpeed = 90f; // degrees per second
+        float rotationSpeed = 60f; // degrees per second
         float originalRotation = transform.eulerAngles.z;
         float targetRotation = transform.eulerAngles.z + 90f;
         while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.z, targetRotation)) > 0.1f)
