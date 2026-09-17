@@ -27,4 +27,6 @@ public class DeathScreen : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
     }
+
+   
 }
