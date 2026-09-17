@@ -6,8 +6,8 @@ public class SFXManager : MonoBehaviour
 
     [SerializeField] private AudioSource sfxObject;
 
-    public float clipLength;
-    public float timer = 0f;
+    private float clipLength;
+    private float timer = 0f;
 
     public float lowPitchRange = .95f;
     public float highPitchRange = 1.05f;
