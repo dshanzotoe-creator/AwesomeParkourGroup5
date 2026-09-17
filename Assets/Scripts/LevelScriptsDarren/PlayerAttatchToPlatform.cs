@@ -4,7 +4,7 @@ public class PlayerAttatchToPlatform : MonoBehaviour
 {
 
 
-    private Movement playerMovementScript;
+    private StateMachine playerMovementScript;
 
     private Vector3 lastPlatformPosition;
 
@@ -33,7 +33,7 @@ public class PlayerAttatchToPlatform : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            playerMovementScript = other.GetComponent<Movement>();
+            playerMovementScript = other.GetComponent<StateMachine>();
             Debug.Log("Player has entered the platform trigger.");
         }
     }

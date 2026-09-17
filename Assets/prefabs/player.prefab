@@ -15,10 +15,9 @@ GameObject:
   - component: {fileID: 5567888487486342538}
   - component: {fileID: 9140593363871748984}
   - component: {fileID: 1074086200755803031}
-  - component: {fileID: 3170258410030593566}
-  - component: {fileID: 1808910940005227573}
   - component: {fileID: 3085336213760209458}
-  - component: {fileID: 5657558914297685254}
+  - component: {fileID: 3946009457116965508}
+  - component: {fileID: 7784751396497124151}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -227,32 +226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
   MovementInput: {x: 0, y: 0}
-  RawCameraMovement: {x: 0, y: 0}
+  CameraMovement: {x: 0, y: 0}
+  IsJumping: 0
+  IsCrouching: 0
+  IsSprinting: 0
   MouseSentitivity: 0.2
---- !u!114 &3170258410030593566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25c16bf322f68c646afafd58fddafbb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Movement
---- !u!114 &1808910940005227573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a281d600c81b444281a413a9ca98fcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::playerFunctions
 --- !u!114 &3085336213760209458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,26 +243,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877a6013cba35cb4dad0de6e509d4b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  _stamina: 0
   Health: 0
-  Speed: 0
---- !u!135 &5657558914297685254
-SphereCollider:
+--- !u!114 &3946009457116965508
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45349172941968604}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: -0.53, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde0623907283a5439c1cc4969b75126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateMachine
+  state: 0
+  stateWalking: 0
+  stateSprinting: 0
+  StateCrouching: 0
+  StateSliding: 0
+  StateWallRunning: 0
+  StateJumping: 0
+  wallCheckDistance: 0
+  orientation: {fileID: 0}
+--- !u!114 &7784751396497124151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c16bf322f68c646afafd58fddafbb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movement
+  nearFoV: 70
+  farFoV: 90
