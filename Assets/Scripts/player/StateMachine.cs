@@ -14,7 +14,8 @@ public class StateMachine : MonoBehaviour
         StateCrouching,
         StateSliding,
         StateWallRunning,
-        StateJumping
+        StateJumping,
+        StateMidAir,
 
     }
 
@@ -23,14 +24,6 @@ public class StateMachine : MonoBehaviour
     private InputManager inputManager;
     private PlayerStats playerStats;
    
-    public bool stateWalking;
-    public bool stateSprinting;
-    public bool StateCrouching;
-
-    public bool StateSliding;
-    public bool StateWallRunning;
-    public bool StateJumping;
-
 
     private float crouchSpeed;
     private float walkSpeed;
@@ -113,6 +106,11 @@ public class StateMachine : MonoBehaviour
 
                 break;
 
+            case MovementState.StateJumping:
+
+                InitJump();
+
+                break;
 
             default:
 
@@ -167,11 +165,6 @@ public class StateMachine : MonoBehaviour
 
 
 
-       
-
-
-        
-
 
         controller.Move((totalPlayerMovement + finalPlatformMovement)); //This line applies both the player's movement and the platform's movement to the character controller. Only if there is actually a platform.
 
@@ -200,13 +193,50 @@ public class StateMachine : MonoBehaviour
 
 
 
-
-
     public void StateSprinting()
     {
 
 
+        playerForward = transform.TransformDirection(Vector3.forward);
+        playerRight = transform.TransformDirection(Vector3.right);
 
+
+        float oldY = moveDirection.y;
+
+        playerMovementSpeed = new Vector2(inputManager.MovementInput.y * sprintSpeed, inputManager.MovementInput.x * sprintSpeed);
+
+        moveDirection = (playerForward * playerMovementSpeed.x) + (playerRight * playerMovementSpeed.y);
+
+
+
+        moveDirection.y = oldY;
+
+        //apply gravity
+        if (!controller.isGrounded)
+        {
+            moveDirection.y += playerStats.GetGravity() * Time.deltaTime;
+        }
+
+
+
+        Vector3 totalPlayerMovement = moveDirection * Time.deltaTime;
+
+        Vector3 finalPlatformMovement = platformMovementDelta;
+
+        if (!controller.isGrounded) finalPlatformMovement.y = 0f;
+
+
+
+
+
+
+
+
+
+        controller.Move((totalPlayerMovement + finalPlatformMovement)); //This line applies both the player's movement and the platform's movement to the character controller. Only if there is actually a platform.
+
+
+        platformMovementDelta = Vector3.zero; // Reset platform movement after applying it
 
 
 
@@ -227,6 +257,40 @@ public class StateMachine : MonoBehaviour
         }
 
     }
+
+    public void StateMidAir()
+    {
+        float oldY = moveDirection.y;
+
+
+        
+        if (!controller.isGrounded)
+        {
+            moveDirection.y += playerStats.GetGravity() * Time.deltaTime;
+        }
+
+        if (controller.isGrounded) {
+
+            state = MovementState.StateWalking;
+        }
+        moveDirection.y = oldY;
+
+    }
+
+    private void InitJump()
+    {
+       
+        moveDirection.y = playerStats.GetJumpForce();
+        Vector3 totalPlayerMovement = moveDirection * Time.deltaTime;
+        controller.Move(totalPlayerMovement);
+
+
+        if (controller.isGrounded) {
+            state = MovementState.StateMidAir;
+        
+        }
+    }
+
 
     private bool IsPlayerTooCloseToGround()
     {
