@@ -974,10 +974,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1908856808356510642, guid: 6d00d15b797690f40aa1e0b44259aefa, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -462981019419857548, guid: e0d8899900f8cab43bbd5148ab092159, type: 3}
+    - target: {fileID: 3113753689715400713, guid: 6d00d15b797690f40aa1e0b44259aefa, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -462981019419857548, guid: e0d8899900f8cab43bbd5148ab092159, type: 3}
     - target: {fileID: 3499616137568220878, guid: 6d00d15b797690f40aa1e0b44259aefa, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 710926290}
+    - target: {fileID: 4587096871665673659, guid: 6d00d15b797690f40aa1e0b44259aefa, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -462981019419857548, guid: e0d8899900f8cab43bbd5148ab092159, type: 3}
     - target: {fileID: 7431545300768311379, guid: 6d00d15b797690f40aa1e0b44259aefa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.52
