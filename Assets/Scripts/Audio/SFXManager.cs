@@ -1,10 +1,11 @@
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
     public static SFXManager instance;
-
     [SerializeField] private AudioSource sfxObject;
+    [SerializeField] private AudioClip[] audioClips;
 
     private float clipLength;
     private float timer = 0f;
@@ -13,13 +14,18 @@ public class SFXManager : MonoBehaviour
     public float highPitchRange = 1.05f;
 
     private void Awake()
-    {
+    {        
+        DontDestroyOnLoad(gameObject);
+
         if (instance == null)
         {
             instance = this;
         }
-
-        DontDestroyOnLoad(gameObject);
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void Update()
