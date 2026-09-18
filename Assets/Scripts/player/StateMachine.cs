@@ -62,6 +62,7 @@ public class StateMachine : MonoBehaviour
         crouchSpeed = 2.5f;
         walkSpeed = 5f;
         sprintSpeed = 10f;
+        state = MovementState.StateWalking;
     }
 
 
@@ -260,7 +261,7 @@ public class StateMachine : MonoBehaviour
 
     public void StateMidAir()
     {
-        float oldY = moveDirection.y;
+        
 
 
         
@@ -273,7 +274,7 @@ public class StateMachine : MonoBehaviour
 
             state = MovementState.StateWalking;
         }
-        moveDirection.y = oldY;
+        
 
     }
 
@@ -285,8 +286,8 @@ public class StateMachine : MonoBehaviour
         controller.Move(totalPlayerMovement);
 
 
-        if (controller.isGrounded) {
-            state = MovementState.StateMidAir;
+        if (!controller.isGrounded) {
+            state = MovementState.StateWalking;
         
         }
     }

@@ -39,6 +39,8 @@ public class InputManager : MonoBehaviour
 
 
         jumpAction.started += Jumped;
+        jumpAction.canceled += Jumped;
+
         sprintAction.started += Sprinting;
         sprintAction.canceled += Sprinting;
 
@@ -62,8 +64,17 @@ public class InputManager : MonoBehaviour
 
     private void Jumped(InputAction.CallbackContext _)
     {
-        if (_.started)
-        IsJumping = true;
+        if (_.started) {
+            IsJumping = true;
+        }
+        
+
+        if (_.canceled)
+        {
+            IsJumping = false;
+
+        }
+           
     }
 
     private void Sprinting(InputAction.CallbackContext _) {
