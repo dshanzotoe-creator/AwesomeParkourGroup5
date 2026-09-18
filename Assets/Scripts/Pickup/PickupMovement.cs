@@ -6,13 +6,13 @@ using UnityEngine;
 public class PickupMovement : MonoBehaviour
 {
     #region variables
+    bool shouldMove = false;
     IEnumerator movementCoroutine;
-    [SerializeField] List<Transform> anchors = new();
-    Transform currentAnchor;
     Pickup pickupScript;
     GameObject player;
     float speedBoost = 0;
     [SerializeField] float maxSpeedBoost;
+    [SerializeField] float floatDistance;
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,29 +20,20 @@ public class PickupMovement : MonoBehaviour
     {
         player = GameObject.Find("Player");
         pickupScript = gameObject.GetComponent<Pickup>();
+        StartCoroutine(ShouldMove());
     }
 
-    public void StartMovingToAnchor() // scrap?
+    void Start()
     {
-        movementCoroutine = MoveTowardsAnchor();
-        float lowestDot = 0;
-        List<float> dotProducts = new();
-        foreach (Transform anchor in anchors)
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Floor")))
         {
-            dotProducts.Add(Vector3.Dot(player.transform.position, anchor.position));
+            Debug.Log(hit.transform.gameObject.name);
+            transform.position = new(transform.position.x, hit.transform.position.y + transform.localScale.y/2 + hit.transform.localScale.y/2 + floatDistance, transform.position.z);
         }
-        foreach (float dotProduct in dotProducts)
-        {
-            if (lowestDot == 0) { lowestDot = dotProduct; }
-            Debug.Log(dotProduct);
-        }
-        StartCoroutine(movementCoroutine);
     }
 
-    IEnumerator MoveTowardsAnchor()
+    void Update()
     {
-        while (transform.position != anchors[0].position)
-        yield return new WaitForEndOfFrame();
     }
 
     public bool IsMoving()
@@ -59,7 +50,7 @@ public class PickupMovement : MonoBehaviour
 
     IEnumerator MoveFromPlayer()
     {
-        while (pickupScript.InRange())
+        while (shouldMove)
         {
             BoostSpeedWhileInRadius();
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -Time.deltaTime * speedBoost);
@@ -80,5 +71,18 @@ public class PickupMovement : MonoBehaviour
     {
         speedBoost = 0;
         movementCoroutine = null;
+    }
+
+    IEnumerator ShouldMove()
+    {
+        while (true)
+        {
+            if (Physics.Raycast(transform.position, Vector3.down, 2f, LayerMask.GetMask("Floor")) && pickupScript.InRange())
+            {
+                shouldMove = true;
+            }
+            else shouldMove = false;
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
