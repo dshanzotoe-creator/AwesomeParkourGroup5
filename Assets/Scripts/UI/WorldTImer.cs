@@ -1,10 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorldTimer : MonoBehaviour
 {
 
-    public TextMeshProUGUI timeText;
+    public Text timeText;
     private float time;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

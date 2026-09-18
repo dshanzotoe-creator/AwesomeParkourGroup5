@@ -1,0 +1,90 @@
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+
+public class Movement : MonoBehaviour
+{
+    private InputManager inputManager;
+
+
+    private Camera camera;
+
+
+
+
+    [Header("Camera")]
+    private float lookAngleY = 0f;
+    private float lookAngleX = 0f;
+    public float nearFoV = 70f;
+    public float farFoV = 90f;
+    private float lookAngleLimit = 90f;
+
+
+
+
+
+    
+
+
+    void Awake()
+    {
+        inputManager = GetComponent<InputManager>();
+        camera = GetComponent<Camera>();
+
+    }
+    void Start()
+    {
+        
+    }
+
+    //Update is called once per frame
+    void Update() 
+    {
+
+        HandleCameraMovement();
+
+        setFoV();
+
+        
+    }
+
+
+
+    private void HandleCameraMovement()
+    {
+
+        lookAngleY -= inputManager.CameraMovement.y;
+        lookAngleX += inputManager.CameraMovement.x;
+        lookAngleY = Mathf.Clamp(lookAngleY, -lookAngleLimit, lookAngleLimit);
+
+        transform.localRotation = Quaternion.Euler(lookAngleY,0f,0f);
+        transform.rotation = Quaternion.Euler(lookAngleY,lookAngleX, 0);
+        
+    }
+
+
+    public void setFoV()
+    {
+        if (inputManager.IsSprinting)
+        {
+            var currentFoV = camera.fieldOfView;
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, farFoV, 0.02f);     
+        }
+        else
+        {
+            camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, nearFoV, 0.05f);
+        }
+    }
+
+
+
+
+
+
+
+
+
+}

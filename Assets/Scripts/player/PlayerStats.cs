@@ -1,14 +1,23 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private float _health;
-    private float _speed;
 
+    private float _jump_force;
+
+
+    private bool isStaminaDraining;
+
+    [SerializeField] private float _stamina;
+    private float _gravity;
     public float Health;
-    public float Speed;
-    const float MAXHEALTH = 100;
+    const float MAXHEALTH = 100f;
+    const float MAXSTAMINA = 100f;
+
+
     void Awake()
     {
 
@@ -17,13 +26,15 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         _health = 100f;
-        _speed = 1f;
+        _jump_force = 10f;
+        _gravity = -20f;
+        _stamina = MAXSTAMINA;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        RegenStamina();
     }
 
     public void SetHealth(float health)
@@ -32,18 +43,31 @@ public class PlayerStats : MonoBehaviour
         _health = Mathf.Clamp(_health, 0, MAXHEALTH);
     }
 
+    public void RegenStamina()
+    {
+            if (_stamina < MAXSTAMINA && !isStaminaDraining){
+            _stamina += 0.05f;
+            }   
+    }
     public float GetHealth() {
     return _health;
 
     }
 
-    public void SetSpeed(float speed)
+
+
+    public float GetJumpForce()
     {
-        _speed = speed;
+        return _jump_force;
     }
 
-    public float GetSpeed() {
-        return _speed;
+    public float GetGravity()
+    {
+        return _gravity;
     }
 
+    public float GetStamina()
+    {
+        return _stamina;
+    }
 }
