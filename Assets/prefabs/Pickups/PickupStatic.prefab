@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7534213087135430909}
   - component: {fileID: 1020629680834188165}
   - component: {fileID: 4032166603251991785}
-  - component: {fileID: 1910600493479755608}
   - component: {fileID: 3995084476071108129}
   - component: {fileID: 534438218665159216}
   m_Layer: 0
@@ -130,20 +129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   type: 0
---- !u!114 &1910600493479755608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940465703276481776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277a641141e6deb4e92e3cca41f3545f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PickupMovementAnchor
-  maxSpeedBoost: 6.5
-  floatDistance: 0
 --- !u!114 &3995084476071108129
 MonoBehaviour:
   m_ObjectHideFlags: 0
