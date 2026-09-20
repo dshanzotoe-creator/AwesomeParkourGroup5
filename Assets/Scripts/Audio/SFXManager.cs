@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
-    public static SFXManager instance;
+    public static SFXManager Instance { get; private set; }
     [SerializeField] private AudioSource sfxObject;
     [SerializeField] private AudioClip[] audioClips;
 
@@ -11,9 +11,9 @@ public class SFXManager : MonoBehaviour
     {        
         DontDestroyOnLoad(gameObject);
 
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
         else
         {
@@ -57,7 +57,7 @@ public class SFXManager : MonoBehaviour
         audioSource.volume = volume;
 
         // Assign random pitch to played audioClip
-        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.pitch = Random.Range(0.95f, 1.05f);
 
         // Play sound, might change from PlayOneShot to just Play() in the future since the if-statement theoretically stops all the sounds from playing at once
         audioSource.Play();
