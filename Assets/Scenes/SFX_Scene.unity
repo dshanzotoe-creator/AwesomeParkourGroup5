@@ -446,6 +446,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7333827401104031158, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333827401104031158, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: sfxVolume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333827401104031158, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: sfxManager
       value: 
       objectReference: {fileID: 2100078685}
@@ -715,7 +723,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
       propertyPath: audioClips.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
       propertyPath: 'audioClips.Array.data[0]'
@@ -724,7 +732,7 @@ PrefabInstance:
     - target: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
       propertyPath: 'audioClips.Array.data[1]'
       value: 
-      objectReference: {fileID: 8300000, guid: 66cfe2b25c5cb134fb4853453376c92e, type: 3}
+      objectReference: {fileID: 8300000, guid: bde10d00fa6b38a4e8b67f58dc9e2ec1, type: 3}
     - target: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
       propertyPath: 'audioClips.Array.data[2]'
       value: 
