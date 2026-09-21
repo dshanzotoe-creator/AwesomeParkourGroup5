@@ -263,13 +263,14 @@ public class StateMachine : MonoBehaviour
 
 
         float oldY = moveDirection.y;
+        Vector3 CrouchScale = new Vector3(1f, 0.5f, 1f);
 
         playerMovementSpeed = new Vector2(inputManager.MovementInput.y * walkSpeed, inputManager.MovementInput.x * walkSpeed);
 
         moveDirection = (playerForward * playerMovementSpeed.x) + (playerRight * playerMovementSpeed.y);
 
-
-       // transform.localScale.y = Mathf.Lerp(transform.localScale.y, 0.5f, 0.1f);
+       
+       transform.localScale = Vector3.Lerp(transform.localScale, CrouchScale, 0.1f);
 
         moveDirection.y = oldY;
 
