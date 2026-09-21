@@ -30,8 +30,8 @@ public class Pickup : MonoBehaviour
 
     public void HandlePickup()
     {
-        // decrement via pickupcounter
-        Destroy(gameObject);
+        GameObject.Find("PickupCounter").GetComponent<PickupCounter>().AddPickup();
+        gameObject.SetActive(false);
     }
 
     IEnumerator CheckDistance()

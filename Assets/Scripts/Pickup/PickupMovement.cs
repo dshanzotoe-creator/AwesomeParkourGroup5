@@ -11,8 +11,10 @@ public class PickupMovement : MonoBehaviour
     Pickup pickupScript;
     GameObject player;
     float speedBoost = 0;
+    Vector3 nextPosition;
     [SerializeField] float maxSpeedBoost;
     [SerializeField] float floatDistance;
+    float floatPosition;
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,6 +30,7 @@ public class PickupMovement : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Floor")))
         {
             Debug.Log(hit.transform.gameObject.name);
+            floatPosition = hit.transform.position.y + transform.localScale.y/2 + hit.transform.localScale.y/2 + floatDistance;
             transform.position = new(transform.position.x, hit.transform.position.y + transform.localScale.y/2 + hit.transform.localScale.y/2 + floatDistance, transform.position.z);
         }
     }
@@ -53,7 +56,7 @@ public class PickupMovement : MonoBehaviour
         while (shouldMove)
         {
             BoostSpeedWhileInRadius();
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -Time.deltaTime * speedBoost);
+            transform.position = new(nextPosition.x, floatPosition, nextPosition.z);
             yield return new WaitForEndOfFrame();
         }
         ResetState(); // only triggers on exit. 
@@ -63,7 +66,7 @@ public class PickupMovement : MonoBehaviour
     {
         if (speedBoost < maxSpeedBoost)
         {
-            speedBoost = Mathf.Lerp(speedBoost, maxSpeedBoost, maxSpeedBoost / 10 * Time.deltaTime);
+            speedBoost = Mathf.Lerp(speedBoost, maxSpeedBoost, maxSpeedBoost / 2 * Time.deltaTime);
         }
     }
 
@@ -77,7 +80,11 @@ public class PickupMovement : MonoBehaviour
     {
         while (true)
         {
-            if (Physics.Raycast(transform.position, Vector3.down, 2f, LayerMask.GetMask("Floor")) && pickupScript.InRange())
+            nextPosition = Vector3.MoveTowards(
+                transform.position,
+                player.transform.position,
+                -Time.deltaTime * speedBoost);
+            if (Physics.Raycast(nextPosition, Vector3.down, 2f, LayerMask.GetMask("Floor")) && pickupScript.InRange())
             {
                 shouldMove = true;
             }

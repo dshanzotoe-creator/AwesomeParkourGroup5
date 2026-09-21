@@ -3,8 +3,8 @@ using UnityEngine;
 public class PickupCounter : MonoBehaviour
 {
     int maxPickups = 10;
-    int remainingPickups = 10;
-    int heldPickups = 0;
+    [SerializeField] int remainingPickups = 10;
+    [SerializeField] int heldPickups = 0;
     
     void Start()
     {
@@ -16,14 +16,19 @@ public class PickupCounter : MonoBehaviour
         heldPickups++;
     }
 
-    void OnTriggerEnter(Collider other)
+    public void DecrementPickups()
     {
-        if (other.CompareTag("Collector"))
-        {
-            if (heldPickups > 0)
-            {
-                remainingPickups -= heldPickups;
-            }
-        }
+        remainingPickups -= heldPickups;
+        heldPickups = 0;
+    }
+
+    public int ReportRemainingPickups()
+    {
+        return remainingPickups;
+    }
+
+    public int ReportHeldPickups()
+    {
+        return heldPickups;
     }
 }

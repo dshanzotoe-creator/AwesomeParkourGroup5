@@ -20,5 +20,14 @@ public class PlayerPickupHandler : MonoBehaviour
         {
             other.gameObject.GetComponent<Pickup>().HandlePickup();
         }
+
+        else if (other.CompareTag("Collector"))
+        {
+            PickupCounter pickupCounter = GameObject.Find("PickupCounter").GetComponent<PickupCounter>();
+            if (pickupCounter.ReportHeldPickups() > 0)
+            {
+                pickupCounter.DecrementPickups();
+            }
+        }
     }
 }
