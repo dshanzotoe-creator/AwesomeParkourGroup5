@@ -48,7 +48,7 @@ public class PlatformMovementManager : MonoBehaviour
 
     void ChosenMovement(float number)
     {
-        number = Mathf.Clamp(number, 1,4);
+        number = Mathf.Clamp(number, 1,5);
 
 
         switch (number)
@@ -64,6 +64,9 @@ public class PlatformMovementManager : MonoBehaviour
                 break;
             case 4:
                 CircularOrbit();
+                break;
+            case 5:
+                FerrisWheelOrbit();
                 break;
 
         }
@@ -101,10 +104,17 @@ public class PlatformMovementManager : MonoBehaviour
         Vector3 newPosition = new Vector3(centerPoint.x + xOffset, centerPoint.y, centerPoint.z + zOffset);
 
         Vector3 moveDirection = newPosition - transform.position; 
-    
-        if(moveDirection != Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(moveDirection);
 
         transform.position = newPosition;
     } 
+
+    void FerrisWheelOrbit()
+    {
+        currentAngle += orbitSpeed * Time.deltaTime;
+        float xOffset = Mathf.Cos(currentAngle) * radius;
+        float yOffset = Mathf.Sin(currentAngle) * radius;
+        Vector3 newPosition = new Vector3(centerPoint.x + xOffset, centerPoint.y + yOffset, centerPoint.z);
+        Vector3 moveDirection = newPosition - transform.position;
+        transform.position = newPosition;
+    }
 }
