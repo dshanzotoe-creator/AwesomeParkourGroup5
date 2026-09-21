@@ -24,6 +24,10 @@ public class InputManager : MonoBehaviour
 
     public bool IsSprinting;
 
+    public bool IsIdle;
+
+    public bool IsWalking;
+
     public float MouseSentitivity = 1f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,6 +47,9 @@ public class InputManager : MonoBehaviour
 
         sprintAction.started += Sprinting;
         sprintAction.canceled += Sprinting;
+
+        crouchAction.started += Crouching;
+        crouchAction.canceled += Crouching;
 
     }
     void Start()
@@ -84,9 +91,13 @@ public class InputManager : MonoBehaviour
         if(_.canceled) IsSprinting = false;
     }
 
-    private void NotSprinting(InputAction.CallbackContext _){
-        IsSprinting = false;
+    private void Crouching(InputAction.CallbackContext _) {
+
+        if (_.started) { IsCrouching = true; }
+    
+        if (_.canceled) { IsCrouching = false; }
     }
+
 
 
 
