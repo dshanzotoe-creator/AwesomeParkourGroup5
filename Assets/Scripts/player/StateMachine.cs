@@ -269,6 +269,7 @@ public class StateMachine : MonoBehaviour
         moveDirection = (playerForward * playerMovementSpeed.x) + (playerRight * playerMovementSpeed.y);
 
 
+       // transform.localScale.y = Mathf.Lerp(transform.localScale.y, 0.5f, 0.1f);
 
         moveDirection.y = oldY;
 
