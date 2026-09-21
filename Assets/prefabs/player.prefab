@@ -232,6 +232,8 @@ MonoBehaviour:
   IsJumping: 0
   IsCrouching: 0
   IsSprinting: 0
+  IsIdle: 0
+  IsWalking: 0
   MouseSentitivity: 0.2
 --- !u!114 &3085336213760209458
 MonoBehaviour:
@@ -289,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSFX
   sfxManager: {fileID: 0}
-  volume: 0.5
+  sfxVolume: 0.25
 --- !u!81 &4770051335037300362
 AudioListener:
   m_ObjectHideFlags: 0
