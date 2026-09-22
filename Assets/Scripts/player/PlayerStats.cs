@@ -8,18 +8,16 @@ public class PlayerStats : MonoBehaviour
 
     private float _jump_force;
 
-
+    private float _gravity;
     private bool isStaminaDraining;
 
     [SerializeField] private float _stamina;
-    private float _gravity;
+    
     public float Health;
     const float MAXHEALTH = 100f;
     const float MAXSTAMINA = 100f;
 
-    const float walkSpeed = 5f;
-    const float crouchSpeed = 2.5f;
-    const float runSpeed = 10f;
+    private float _speed = 5f;
 
 
     void Awake()
@@ -73,5 +71,14 @@ public class PlayerStats : MonoBehaviour
     public float GetStamina()
     {
         return _stamina;
+    }
+
+    public float GetSpeed()
+    {
+        return _speed;
+    } 
+    public void SetSpeed(float speed)
+    {
+        _speed = speed;
     }
 }

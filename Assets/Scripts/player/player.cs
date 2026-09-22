@@ -21,4 +21,11 @@ public class player : MonoBehaviour
     {
         
     }
+
+    void GetPlayerData()
+    {
+
+        controller = GetComponent<CharacterController>();
+
+    }
 }

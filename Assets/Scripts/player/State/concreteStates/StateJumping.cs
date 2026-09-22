@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class StateJumping : MonoBehaviour, IState
+public class StateJumping : IState
 {
     public void StateEnter(StateManager _)
     {

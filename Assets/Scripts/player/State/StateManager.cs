@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class StateManager : MonoBehaviour
@@ -12,21 +13,27 @@ public class StateManager : MonoBehaviour
     public StateJumping stateJumping = new StateJumping();
 
 
-    public InputManager inputManager;
-    private CharacterController controller;
+    public InputManager input;
+    public CharacterController controller;
 
-    private Vector3 playerForward;
-    private Vector3 playerRight;
+    public PlayerStats stats;
+
+    public Vector3 playerForward;
+    public Vector3 playerRight;
 
     public bool isPlayerGrounded;
 
-    private Vector2 movement;
+    public PlayerMovement movement;
+
+
     
     void Start()
     {
 
-        inputManager = GetComponent<InputManager>();
-        
+        input = GetComponent<InputManager>();
+        controller.GetComponent<CharacterController>();
+        movement = GetComponent<PlayerMovement>();
+        stats = GetComponent<PlayerStats>();
         _currentState = stateIdle;
         _currentState.StateEnter(this);
     }
@@ -66,8 +73,11 @@ public class StateManager : MonoBehaviour
         {
             isPlayerGrounded = false;
         }
-    }
-    private void 
 
+
+    
+    }
+    
+    
 }
 

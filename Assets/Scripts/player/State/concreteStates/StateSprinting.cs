@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StateSprinting : MonoBehaviour, IState
+public class StateSprinting : IState
 {
     
     public void StateEnter(StateManager _) 

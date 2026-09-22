@@ -459,6 +459,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 45349172941968604, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1199844464}
+    - targetCorrespondingSourceObject: {fileID: 45349172941968604, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1199844466}
+    - targetCorrespondingSourceObject: {fileID: 45349172941968604, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1199844465}
   m_SourcePrefab: {fileID: 100100000, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
 --- !u!1 &1199844463 stripped
 GameObject:
@@ -477,11 +483,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a036cb22285b43e40b9f0bd1e0ebb906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateManager
-  stateIdle: {fileID: 0}
-  stateCrouching: {fileID: 0}
-  stateWalking: {fileID: 0}
-  stateSprinting: {fileID: 0}
-  stateJumping: {fileID: 0}
+  input: {fileID: 0}
+  controller: {fileID: 0}
+  stats: {fileID: 0}
+  playerForward: {x: 0, y: 0, z: 0}
+  playerRight: {x: 0, y: 0, z: 0}
+  isPlayerGrounded: 0
+  movement: {fileID: 0}
+--- !u!114 &1199844465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199844463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a7a73c5f15045a19a2033f5d700503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+--- !u!114 &1199844466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199844463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a036cb22285b43e40b9f0bd1e0ebb906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateManager
+  input: {fileID: 0}
+  controller: {fileID: 0}
+  stats: {fileID: 0}
+  playerForward: {x: 0, y: 0, z: 0}
+  playerRight: {x: 0, y: 0, z: 0}
+  isPlayerGrounded: 0
+  movement: {fileID: 0}
 --- !u!1 &1476359771
 GameObject:
   m_ObjectHideFlags: 0

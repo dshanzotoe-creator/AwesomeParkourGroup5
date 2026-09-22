@@ -9,34 +9,34 @@ public class StateWalking : IState
 
 
 
-    public void StateEnter(StateManager context)
+    public void StateEnter(StateManager cxt)
     {
-        
+        cxt.stats.SetSpeed(5f);
     }
 
-    public void StateExit(StateManager context)
+    public void StateExit(StateManager cxt)
     { 
 
     }
 
-    public void StateUpdate(StateManager context)
+    public void StateUpdate(StateManager cxt)
     {
-        
-        
 
-        if (input.IsSprinting)
+        cxt.controller.Move(cxt.movement.GetMovement(cxt.playerForward, cxt.playerRight, cxt.stats.GetSpeed(), cxt.isPlayerGrounded, cxt.input.MovementInput, cxt.stats.GetGravity()));
+
+        if (cxt.input.IsSprinting)
         {
-            context.ChangeState(context.stateSprinting);
+            cxt.ChangeState(cxt.stateSprinting);
         }
 
-        if (input.IsJumping && context.isPlayerGrounded)
+        if (cxt.input.IsJumping && cxt.isPlayerGrounded)
         {
-            context.ChangeState(context.stateJumping);
+            cxt.ChangeState(cxt.stateJumping);
         }
 
-        if (input.IsCrouching)
+        if (cxt.input.IsCrouching)
         { 
-            context.ChangeState(context.stateCrouching);
+            cxt.ChangeState(cxt.stateCrouching);
         }
     }
 }

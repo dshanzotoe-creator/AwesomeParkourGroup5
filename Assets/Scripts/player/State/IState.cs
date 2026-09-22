@@ -4,9 +4,9 @@ public interface IState
 {
 
     
-    public  void StateEnter(StateManager context, InputManager input, bool grounded) { }
+    public  void StateEnter(StateManager cxt) { }
 
-    public  void StateExit(StateManager context, InputManager input, bool grounded) { }
+    public  void StateExit(StateManager cxt) { }
 
-    public  void StateUpdate(StateManager context, InputManager input, bool grounded) { }
+    public  void StateUpdate(StateManager cxt) { }
 }
