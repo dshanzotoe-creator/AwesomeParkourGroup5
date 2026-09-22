@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class PlatformMovementManager : MonoBehaviour
 {
-    //Darren Scott
-    
-    //A short guide on how to use the Movement Manager. 
    
 
 
@@ -26,7 +23,7 @@ public class PlatformMovementManager : MonoBehaviour
 
 
 
-    [Header("Choose between 1-4. Each number gives a different cube movement.")]
+    [Header("Choose between 1-5. Each number gives a different cube movement.")]
     [SerializeField] float movementTypeNumber; 
 
 
@@ -81,16 +78,16 @@ public class PlatformMovementManager : MonoBehaviour
     }
     void BackAndForthMovement()
     {
-        float newY = startpos.y + Mathf.Cos(Time.time * frequency) * amplitude;
+        float newZ = startpos.z + Mathf.Cos(Time.time * frequency) * amplitude;
 
-        transform.position = new Vector3(startpos.x, startpos.y, newY);
+        transform.position = new Vector3(startpos.x, startpos.y, newZ);
     }
 
     void SideToSideMovement()
     {
-        float newY = startpos.y + Mathf.Cos(Time.time * frequency) * amplitude;
+        float newX = startpos.x + Mathf.Cos(Time.time * frequency) * amplitude;
 
-        transform.position = new Vector3(newY, startpos.y, startpos.z);
+        transform.position = new Vector3(newX, startpos.y, startpos.z);
     }
 
 
