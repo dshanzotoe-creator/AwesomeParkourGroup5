@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 9140593363871748984}
   - component: {fileID: 1074086200755803031}
   - component: {fileID: 3085336213760209458}
-  - component: {fileID: 3946009457116965508}
   - component: {fileID: 7784751396497124151}
   - component: {fileID: 7333827401104031158}
   - component: {fileID: 4770051335037300362}
@@ -232,6 +231,8 @@ MonoBehaviour:
   IsJumping: 0
   IsCrouching: 0
   IsSprinting: 0
+  IsIdle: 0
+  IsWalking: 0
   MouseSentitivity: 0.2
 --- !u!114 &3085336213760209458
 MonoBehaviour:
@@ -247,21 +248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   _stamina: 0
   Health: 0
---- !u!114 &3946009457116965508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45349172941968604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fde0623907283a5439c1cc4969b75126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StateMachine
-  state: 0
-  wallCheckDistance: 0
-  orientation: {fileID: 0}
 --- !u!114 &7784751396497124151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSFX
   sfxManager: {fileID: 0}
-  volume: 0.5
+  sfxVolume: 0
 --- !u!81 &4770051335037300362
 AudioListener:
   m_ObjectHideFlags: 0

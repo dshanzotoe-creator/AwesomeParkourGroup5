@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: IsSprinting
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4770051335037300362, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6651372724932812068, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -444,11 +448,40 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7333827401104031158, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 45349172941968604, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1199844464}
   m_SourcePrefab: {fileID: 100100000, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+--- !u!1 &1199844463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 45349172941968604, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+  m_PrefabInstance: {fileID: 1127396796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1199844464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199844463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a036cb22285b43e40b9f0bd1e0ebb906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateManager
+  stateIdle: {fileID: 0}
+  stateCrouching: {fileID: 0}
+  stateWalking: {fileID: 0}
+  stateSprinting: {fileID: 0}
+  stateJumping: {fileID: 0}
 --- !u!1 &1476359771
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,8 +727,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1476359773}
-  - {fileID: 1127396796}
   - {fileID: 1829482257}
   - {fileID: 511566281}
   - {fileID: 1019804451}
   - {fileID: 347034654}
+  - {fileID: 1127396796}

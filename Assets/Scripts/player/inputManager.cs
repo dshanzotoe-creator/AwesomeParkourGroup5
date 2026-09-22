@@ -51,6 +51,8 @@ public class InputManager : MonoBehaviour
         crouchAction.started += Crouching;
         crouchAction.canceled += Crouching;
 
+        movementAction.started += Walking;
+        movementAction.canceled += Walking;
     }
     void Start()
     {
@@ -68,6 +70,21 @@ public class InputManager : MonoBehaviour
         CameraMovement.x = rawCameraMovement.x * MouseSentitivity;
         CameraMovement.y = rawCameraMovement.y * MouseSentitivity;
     }
+
+
+    private void Walking(InputAction.CallbackContext _){
+
+        if(_.started)
+            { 
+            IsWalking = true;
+            }
+        if(_.canceled)
+            { 
+            IsWalking = false;
+            }
+
+    }
+
 
     private void Jumped(InputAction.CallbackContext _)
     {

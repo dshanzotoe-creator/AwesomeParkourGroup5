@@ -68,62 +68,9 @@ public class StateMachine : MonoBehaviour
 
     void Update()
     {
-        HandleState();
     }
 
-    private void HandleState()
-    {
 
-
-        switch (state)
-        {
-            case MovementState.StateWalking:
-
-
-                StateWalking();
-
-
-
-
-
-
-                break;
-
-
-            case MovementState.StateSprinting:
-               
-                StateSprinting();
-
-                break;
-
-
-            case MovementState.StateCrouching:
-
-                StateCrouch();
-
-
-                break;
-
-            case MovementState.StateJumping:
-
-                InitJump();
-
-                break;
-
-            default:
-
-
-
-                break;
-
-        }
-
-
-
-
-
-
-    }
 
 
 

@@ -2,9 +2,11 @@ using UnityEngine;
 
 public interface IState
 {
-    public void Enter() { }
 
-    public void Exit() { }
+    
+    public  void StateEnter(StateManager _) { }
 
-    public void Update() { }
+    public  void StateExit(StateManager _) { }
+
+    public  void StateUpdate(StateManager _) { }
 }

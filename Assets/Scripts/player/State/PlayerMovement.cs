@@ -1,17 +1,12 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.XR;
-using static StateMachine;
 
-public class StateIdle : MonoBehaviour, IState
+public class PlayerMovement : MonoBehaviour
 {
+    private CharacterController controller;
+    private InputManager inputManager;
+    private PlayerStats playerStats;
 
-    InputManager inputManager;
-    StateManager stateManager;
-    CharacterController controller;
-    PlayerStats playerStats;
-
-    [Header("Movement")]
+        [Header("Movement")]
     private Vector3 platformMovementDelta = Vector3.zero;
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 playerForward;
@@ -19,20 +14,20 @@ public class StateIdle : MonoBehaviour, IState
     private Vector2 playerMovementSpeed;
     private float walkSpeed;
 
-    public void Enter()
+    void Start()
     {
         inputManager = GetComponent<InputManager>();
-        stateManager = GetComponent<StateManager>();
-        controller = GetComponent<CharacterController>();
         playerStats = GetComponent<PlayerStats>();
+        controller = GetComponent<CharacterController>();
     }
 
-    public void Exit()
-    { 
-
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 
-    public void Update() 
+    void Move(float speed)
     {
         playerForward = transform.TransformDirection(Vector3.forward);
         playerRight = transform.TransformDirection(Vector3.right);
@@ -69,21 +64,5 @@ public class StateIdle : MonoBehaviour, IState
 
 
         platformMovementDelta = Vector3.zero; // Reset platform movement after applying it
-
-
-        if (inputManager.IsSprinting)
-        {
-            stateManager.ChangeState();
-        }
-
-        if (inputManager.IsJumping && controller.isGrounded)
-        {
-            state = MovementState.StateJumping;
-        }
-
-        if (inputManager.IsCrouching)
-        {
-            state = MovementState.StateCrouching;
-        }
     }
 }
