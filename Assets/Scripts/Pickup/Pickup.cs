@@ -34,6 +34,7 @@ public class Pickup : MonoBehaviour
     {
         GameObject.Find("PickupCounter").GetComponent<PickupCounter>().AddPickup();
         pickupSFX.HandlePickUpSFX();    // Plays the Pickup SFX as the player picks it up.
+        VFXManager.Instance.PlayVFX("BasicPickUp", transform.position);
         gameObject.SetActive(false);
     }
 

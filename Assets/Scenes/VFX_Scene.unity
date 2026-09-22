@@ -1101,6 +1101,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1850287878456652229, guid: 9f728313a1803bb4b8382c61fec54de0, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850287878456652229, guid: 9f728313a1803bb4b8382c61fec54de0, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0.33
       objectReference: {fileID: 0}
@@ -1201,6 +1205,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f728313a1803bb4b8382c61fec54de0, type: 3}
+--- !u!1001 &463995740610351533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1702030725970331367, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_Name
+      value: VFXManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591693969415971287, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aeb6277ab366b8f43964d84473fb4c53, type: 3}
 --- !u!1001 &473730576607872614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1527,6 +1588,10 @@ PrefabInstance:
     - target: {fileID: 128349298142688365, guid: b15705aa55375c046be3c64e1e4df141, type: 3}
       propertyPath: ShapeModule.type
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 128349298142688365, guid: b15705aa55375c046be3c64e1e4df141, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 128349298142688365, guid: b15705aa55375c046be3c64e1e4df141, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -2698,6 +2763,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6124339190354564312, guid: ffa9a51eca1b3464e82ff5e825235ab3, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124339190354564312, guid: ffa9a51eca1b3464e82ff5e825235ab3, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0.33
       objectReference: {fileID: 0}
@@ -3045,3 +3114,4 @@ SceneRoots:
   - {fileID: 5817494159024575689}
   - {fileID: 1089899910}
   - {fileID: 1299459697}
+  - {fileID: 463995740610351533}
