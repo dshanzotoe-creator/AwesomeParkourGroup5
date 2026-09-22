@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-public class Movement : MonoBehaviour
+public class CameraScript: MonoBehaviour
 {
     private InputManager inputManager;
 

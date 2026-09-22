@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         inputManager = GetComponent<InputManager>();
         playerStats = GetComponent<PlayerStats>();
-        controller = GetComponent<CharacterController>();
+        
     }
 
     // Update is called once per frame
@@ -27,15 +27,15 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    void Move(float speed)
+    public Vector3 GetMovement(Vector3 playerForward, Vector3 playerRight,float speed, bool isGrounded, Vector2 movementInput, float gravity)
     {
-        playerForward = transform.TransformDirection(Vector3.forward);
-        playerRight = transform.TransformDirection(Vector3.right);
+        //playerForward = transform.TransformDirection(Vector3.forward);
+        //playerRight = transform.TransformDirection(Vector3.right);
 
 
         float oldY = moveDirection.y;
 
-        playerMovementSpeed = new Vector2(inputManager.MovementInput.y * walkSpeed, inputManager.MovementInput.x * walkSpeed);
+        playerMovementSpeed = new Vector2(movementInput.y * speed, movementInput.x * speed);
 
         moveDirection = (playerForward * playerMovementSpeed.x) + (playerRight * playerMovementSpeed.y);
 
@@ -44,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = oldY;
 
         //apply gravity
-        if (!controller.isGrounded)
+        if (!isGrounded)
         {
-            moveDirection.y += playerStats.GetGravity() * Time.deltaTime;
+            moveDirection.y += gravity * Time.deltaTime;
         }
 
 
@@ -55,14 +55,14 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 finalPlatformMovement = platformMovementDelta;
 
-        if (!controller.isGrounded) finalPlatformMovement.y = 0f;
+        if (!isGrounded) finalPlatformMovement.y = 0f;
 
 
+        platformMovementDelta = Vector3.zero;
 
+        //This line applies both the player's movement and the platform's movement to the character controller. Only if there is actually a platform.
 
-        controller.Move((totalPlayerMovement + finalPlatformMovement)); //This line applies both the player's movement and the platform's movement to the character controller. Only if there is actually a platform.
-
-
-        platformMovementDelta = Vector3.zero; // Reset platform movement after applying it
+        return totalPlayerMovement + finalPlatformMovement;
+         // Reset platform movement after applying it
     }
 }

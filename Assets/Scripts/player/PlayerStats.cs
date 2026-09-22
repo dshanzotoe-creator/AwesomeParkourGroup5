@@ -17,6 +17,10 @@ public class PlayerStats : MonoBehaviour
     const float MAXHEALTH = 100f;
     const float MAXSTAMINA = 100f;
 
+    const float walkSpeed = 5f;
+    const float crouchSpeed = 2.5f;
+    const float runSpeed = 10f;
+
 
     void Awake()
     {

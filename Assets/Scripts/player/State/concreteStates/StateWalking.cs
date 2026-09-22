@@ -3,54 +3,40 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.XR;
 using static StateMachine;
 
-public class StateWalking : MonoBehaviour, IState
+public class StateWalking : IState
 {
 
-    InputManager inputManager;
 
-    CharacterController controller;
-    PlayerStats playerStats;
-    PlayerMovement movement;
 
-    [Header("Movement")]
-    private Vector3 platformMovementDelta = Vector3.zero;
-    private Vector3 moveDirection = Vector3.zero;
-    private Vector3 playerForward;
-    private Vector3 playerRight;
-    private Vector2 playerMovementSpeed;
-    private float walkSpeed;
 
-    public void StateEnter(StateManager _)
+    public void StateEnter(StateManager context)
     {
-        inputManager = GetComponent<InputManager>();
-        controller = GetComponent<CharacterController>();
-        playerStats = GetComponent<PlayerStats>();
-        movement = GetComponent<PlayerMovement>();
+        
     }
 
-    public void StateExit(StateManager _)
+    public void StateExit(StateManager context)
     { 
 
     }
 
-    public void StateUpdate(StateManager _) 
+    public void StateUpdate(StateManager context)
     {
         
+        
 
-
-        if (inputManager.IsSprinting)
+        if (input.IsSprinting)
         {
-            _.ChangeState(_.stateSprinting);
+            context.ChangeState(context.stateSprinting);
         }
 
-        if (inputManager.IsJumping && controller.isGrounded)
+        if (input.IsJumping && context.isPlayerGrounded)
         {
-            _.ChangeState(_.stateJumping);
+            context.ChangeState(context.stateJumping);
         }
 
-        if (inputManager.IsCrouching)
+        if (input.IsCrouching)
         { 
-            _.ChangeState(_.stateCrouching);
+            context.ChangeState(context.stateCrouching);
         }
     }
 }
