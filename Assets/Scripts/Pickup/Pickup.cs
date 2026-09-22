@@ -7,6 +7,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] Type type;
     GameObject player;
     PickupMovement pickupMovement;
+    PickUpSFX pickupSFX;    // Variable for Pickup SFX script
     float distanceToPlayer = 0;
     float minimumDistance = 0; // to player
     bool pickedUp = false;
@@ -26,11 +27,13 @@ public class Pickup : MonoBehaviour
                 StartCoroutine(CheckDistance());
                 break;
         }
+        pickupSFX = gameObject.GetComponent<PickUpSFX>();   // Assign Pickup SFX script to variable
     }
 
     public void HandlePickup()
     {
         GameObject.Find("PickupCounter").GetComponent<PickupCounter>().AddPickup();
+        pickupSFX.HandlePickUpSFX();    // Plays the Pickup SFX as the player picks it up.
         gameObject.SetActive(false);
     }
 

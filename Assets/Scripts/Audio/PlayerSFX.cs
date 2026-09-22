@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSFX : MonoBehaviour
 
 {
-
+    #region variables
     [SerializeField, Tooltip("Add the SFXManager Prefab in prefab/Audio")] private SFXManager sfxManager;
     [SerializeField] private float sfxVolume;
     private float timer;
@@ -14,6 +14,7 @@ public class PlayerSFX : MonoBehaviour
     private InputManager inputManager;
     private StateMachine stateMachine;
     private CharacterController controller;
+    #endregion
 
     void Awake()
     {

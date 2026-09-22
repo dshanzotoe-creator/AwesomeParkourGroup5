@@ -6,7 +6,13 @@ public class PickUpSFX : MonoBehaviour
     [SerializeField] private float sfxVolume;
 
 
-    private void HandlePickUpSFX()
+
+    void Awake()
+    {
+
+    }
+
+    public void HandlePickUpSFX()
     {
         SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("PickUpSFX"), transform, sfxVolume);
     }

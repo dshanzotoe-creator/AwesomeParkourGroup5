@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 9115537221606425467}
   - component: {fileID: 7576435798249081603}
   - component: {fileID: 8894513741498357010}
+  - component: {fileID: 7161802726821154275}
   m_Layer: 0
   m_Name: PickupMoving
   m_TagString: Pickup
@@ -259,3 +260,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2e7f3762fa5f1419c3962438c1eabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupRotation
+--- !u!114 &7161802726821154275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589531805485294651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef65aaf5eb578e4aa9d720de5090106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickUpSFX
+  sfxManager: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
+  sfxVolume: 0.2

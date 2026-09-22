@@ -45,5 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SFXManager
   sfxObject: {fileID: 8827942144644660741, guid: 687de44e4a76c084c993b630f5db62ff, type: 3}
-  lowPitchRange: 0.95
-  highPitchRange: 1.05
+  audioClips:
+  - {fileID: 8300000, guid: adcd9b8f72575964aadc8fec40d4e86c, type: 3}
+  - {fileID: 8300000, guid: bde10d00fa6b38a4e8b67f58dc9e2ec1, type: 3}
+  - {fileID: 8300000, guid: 8120fb058d335b043b026397f4ce13be, type: 3}
