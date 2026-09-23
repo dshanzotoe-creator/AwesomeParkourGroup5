@@ -1745,7 +1745,7 @@ GameObject:
   - component: {fileID: 1861153737}
   - component: {fileID: 1861153739}
   m_Layer: 5
-  m_Name: world Timer
+  m_Name: WorldTimeScorer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
