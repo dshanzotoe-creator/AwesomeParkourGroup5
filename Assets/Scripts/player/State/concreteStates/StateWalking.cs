@@ -49,6 +49,11 @@ public class StateWalking : IState
             cxt.ChangeState(cxt.stateCrouching);
         }
 
+        if(cxt.controller.velocity == Vector3.zero)
+        {
+            cxt.ChangeState(cxt.stateIdle);
+        }
+
         cxt.stats.RegenStamina();
     }
 }
