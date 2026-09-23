@@ -34,7 +34,7 @@ public class PlayerSFX : MonoBehaviour
     private void HandlePlayerSFX()
     {
         // If the player is not running, crouching and not standing still, play the walking sounds
-        if (!inputManager.IsSprinting && !inputManager.IsJumping && !inputManager.IsCrouching )
+        if (!inputManager.InputSprinting && !inputManager.InputJumping && !inputManager.InputCrouching )
         {
             clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Step"));
 
@@ -54,7 +54,7 @@ public class PlayerSFX : MonoBehaviour
         }
         
         // If the Player is sprinting
-        else if (inputManager.IsSprinting)
+        else if (inputManager.InputSprinting)
         {                
             clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Breathing"));
 

@@ -19,14 +19,14 @@ public class InputManager : MonoBehaviour
 
     public Vector2 CameraMovement;
 
-    public bool IsJumping;
-    public bool IsCrouching;
+    public bool InputJumping;
+    public bool InputCrouching;
 
-    public bool IsSprinting;
+    public bool InputSprinting;
 
     public bool IsIdle;
 
-    public bool IsWalking;
+    public bool InputWalking;
 
     public float MouseSentitivity = 1f;
     
@@ -69,16 +69,34 @@ public class InputManager : MonoBehaviour
         CameraMovement.y = rawCameraMovement.y * MouseSentitivity;
     }
 
+<<<<<<< Updated upstream
+=======
+
+    private void Walking(InputAction.CallbackContext _){
+
+        if(_.started)
+            { 
+            InputWalking = true;
+            }
+        if(_.canceled)
+            { 
+            InputWalking = false;
+            }
+
+    }
+
+
+>>>>>>> Stashed changes
     private void Jumped(InputAction.CallbackContext _)
     {
         if (_.started) {
-            IsJumping = true;
+            InputJumping = true;
         }
         
 
         if (_.canceled)
         {
-            IsJumping = false;
+            InputJumping = false;
 
         }
            
@@ -86,16 +104,16 @@ public class InputManager : MonoBehaviour
 
     private void Sprinting(InputAction.CallbackContext _) {
     
-        if(_.started) IsSprinting = true;
+        if(_.started) InputSprinting = true;
 
-        if(_.canceled) IsSprinting = false;
+        if(_.canceled) InputSprinting = false;
     }
 
     private void Crouching(InputAction.CallbackContext _) {
 
-        if (_.started) { IsCrouching = true; }
+        if (_.started) { InputCrouching = true; }
     
-        if (_.canceled) { IsCrouching = false; }
+        if (_.canceled) { InputCrouching = false; }
     }
 
 

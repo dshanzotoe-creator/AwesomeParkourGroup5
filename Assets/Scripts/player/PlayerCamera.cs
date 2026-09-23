@@ -68,7 +68,7 @@ public class Movement : MonoBehaviour
 
     public void setFoV()
     {
-        if (inputManager.IsSprinting)
+        if (inputManager.InputSprinting)
         {
             var currentFoV = camera.fieldOfView;
             camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, farFoV, 0.02f);     

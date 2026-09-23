@@ -170,17 +170,17 @@ public class StateMachine : MonoBehaviour
         platformMovementDelta = Vector3.zero; // Reset platform movement after applying it
 
 
-        if (inputManager.IsSprinting)
+        if (inputManager.InputSprinting)
         {
             state = MovementState.StateSprinting;
         }
 
-        if (inputManager.IsJumping && controller.isGrounded)
+        if (inputManager.InputJumping && controller.isGrounded)
         {
             state = MovementState.StateJumping;
         }
 
-        if (inputManager.IsCrouching)
+        if (inputManager.InputCrouching)
         {
             state = MovementState.StateCrouching;
         }
@@ -238,18 +238,18 @@ public class StateMachine : MonoBehaviour
 
 
 
-        if (!inputManager.IsSprinting)
+        if (!inputManager.InputSprinting)
         {
             state = MovementState.StateWalking;
         }
 
 
-        if (inputManager.IsJumping && controller.isGrounded)
+        if (inputManager.InputJumping && controller.isGrounded)
         {
             state = MovementState.StateJumping;
         }
 
-        if (inputManager.IsCrouching)
+        if (inputManager.InputCrouching)
         {
             state = MovementState.StateSliding;
         }
@@ -296,17 +296,17 @@ public class StateMachine : MonoBehaviour
         platformMovementDelta = Vector3.zero; // Reset platform movement after applying it
 
 
-        if (inputManager.IsSprinting)
+        if (inputManager.InputSprinting)
         {
             state = MovementState.StateSprinting;
         }
 
-        if (inputManager.IsJumping && controller.isGrounded)
+        if (inputManager.InputJumping && controller.isGrounded)
         {
             state = MovementState.StateJumping;
         }
 
-        if (!inputManager.IsCrouching)
+        if (!inputManager.InputCrouching)
         {
             state = MovementState.StateWalking;
         }
