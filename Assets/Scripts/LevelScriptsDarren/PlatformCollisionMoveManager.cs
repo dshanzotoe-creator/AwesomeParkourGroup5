@@ -7,17 +7,19 @@ public class PlatformCollisionMoveManager : MonoBehaviour
 {
 
     [SerializeField] float movementTypeNumber = 0;
-    Vector3 startPos; 
+    Vector3 startPos;
 
-   [SerializeField] float fallSpeed = 5f;
+    [SerializeField] float fallSpeed = 5f;
 
-    Quaternion originalRotation; 
+    Quaternion originalRotation;
 
     bool moving = false;
 
     MeshRenderer meshRenderer;
 
-    BoxCollider boxCollider;
+    [SerializeField] BoxCollider boxCollider;
+
+    [SerializeField] Collider childBoxCollider; 
 
     Coroutine spinRoutine; 
 
@@ -28,6 +30,7 @@ public class PlatformCollisionMoveManager : MonoBehaviour
         originalRotation = transform.rotation;
         meshRenderer = gameObject.GetComponent<MeshRenderer>();
         boxCollider = gameObject.GetComponent<BoxCollider>();
+        childBoxCollider = transform.GetChild(0).GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -60,11 +63,13 @@ public class PlatformCollisionMoveManager : MonoBehaviour
 
         meshRenderer.enabled = false;
         boxCollider.enabled = false;
+        childBoxCollider.enabled = false;
 
         yield return new WaitForSeconds(1f);
 
         meshRenderer.enabled = true;
         boxCollider.enabled = true;
+        childBoxCollider.enabled = true;
 
         while (transform.position.y < startPos.y)
         {
