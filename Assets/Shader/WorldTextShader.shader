@@ -17,7 +17,6 @@ Shader "Custom/OneSidedFont"
         Cull Back
         ZWrite Off
         ZTest LEqual
-        
 
         Blend SrcAlpha OneMinusSrcAlpha
 
