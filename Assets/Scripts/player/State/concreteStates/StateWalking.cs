@@ -22,7 +22,13 @@ public class StateWalking : IState
     public void StateUpdate(StateManager cxt)
     {
 
-        cxt.controller.Move(cxt.movement.GetMovement(cxt.playerForward, cxt.playerRight, cxt.stats.GetSpeed(), cxt.isPlayerGrounded, cxt.input.MovementInput, cxt.stats.GetGravity()));
+        cxt.controller.Move(cxt.movement.GetMovement(
+            cxt.playerForward, 
+            cxt.playerRight, 
+            cxt.stats.GetSpeed(),
+            cxt.isPlayerGrounded, 
+            cxt.input.MovementInput,
+            cxt.stats.GetGravity()));
 
         if (cxt.input.IsSprinting)
         {

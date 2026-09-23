@@ -5,7 +5,7 @@ using static StateMachine;
 
 public class StateIdle : IState
 {
-    public InputManager input;
+    
     public void StateEnter()
     {
 
@@ -16,11 +16,11 @@ public class StateIdle : IState
 
     }
 
-    public void StateUpdate(StateManager _) 
+    public void StateUpdate(StateManager cxt) 
     {
-        if (input.IsWalking)
+        if (cxt.input.IsWalking)
         {
-            _.ChangeState(_.stateWalking);
+            cxt.ChangeState(cxt.stateWalking);
         }
     }
 }

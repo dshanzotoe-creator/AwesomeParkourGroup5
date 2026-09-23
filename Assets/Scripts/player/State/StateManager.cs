@@ -4,7 +4,7 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     
-    private IState _currentState;
+    [SerializeField] IState _currentState;
     
     public StateIdle stateIdle = new StateIdle();
     public StateCrouching stateCrouching = new StateCrouching();
@@ -25,13 +25,13 @@ public class StateManager : MonoBehaviour
 
     public PlayerMovement movement;
 
-
     
-    void Start()
+    
+    void Awake()
     {
 
         input = GetComponent<InputManager>();
-        controller.GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
         movement = GetComponent<PlayerMovement>();
         stats = GetComponent<PlayerStats>();
         _currentState = stateIdle;
