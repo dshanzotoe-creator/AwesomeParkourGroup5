@@ -8,8 +8,9 @@ public class PlayerSFX : MonoBehaviour
     #region variables
     [SerializeField, Tooltip("Add the SFXManager Prefab in prefab/Audio")] private SFXManager sfxManager;
     [SerializeField] private float sfxVolume;
+    [SerializeField] private float sfxdelay;
+
     private float timer;
-    private float clipLength;
 
     private InputManager inputManager;
     private StateMachine stateMachine;
@@ -28,10 +29,10 @@ public class PlayerSFX : MonoBehaviour
     {
         // Timer counting up from zero
         timer += Time.deltaTime;
-        HandlePlayerSFX();
+        // HandlePlayerSFX();
     }
 
-    private void HandlePlayerSFX()
+    /*private void HandlePlayerSFX()
     {
         // If the player is not running, crouching and not standing still, play the walking sounds
         if (!inputManager.IsSprinting && !inputManager.IsJumping && !inputManager.IsCrouching )
@@ -50,13 +51,13 @@ public class PlayerSFX : MonoBehaviour
                 // Resets timer so that the AudioClip can be played again
                 timer = 0f;
             }
-            */
+            
         }
         
         // If the Player is sprinting
         else if (inputManager.IsSprinting)
         {                
-            clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Breathing"));
+            float clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Breathing"));
 
             // If the timer is more or equal to the length of the current clip, play the next sound
             if (timer >= clipLength)
@@ -74,6 +75,85 @@ public class PlayerSFX : MonoBehaviour
         // else if (Player jumping)
 
         // else if (Player wall running)
+
+    }*/
+
+    public void PlayerWalkEnter()
+    {
+        float clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Step"));
+
+
+        if (timer >= clipLength)
+        {
+            // Play sounds that contains the relevant terms, ie "running" or "breathing"
+            SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Step"), transform, sfxVolume);
+
+            // Resets timer so that the AudioClip can be played again
+            timer = 0f;        
+        }
+    }
+
+    public void PlayerWalkExit()
+    {
+        SFXManager.Instance.StopAudio(SFXManager.Instance.GetAudioClip("Step"));
+    }
+
+    public void PlayerRun()
+    {
+        /*
+        float clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Breathing"));
+
+        if (timer >= clipLength)
+        {
+            // Play sounds that contains the relevant terms, ie "running" or "breathing"
+            SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Breathing"), transform, sfxVolume);
+
+            // Resets timer so that the AudioClip can be played again
+            timer = 0f;
+        }
+        */
+
+        SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Breathing"), transform, sfxVolume);
+
+    }
+
+    public void PlayerEnterJump()
+    {
+
+    }
+
+    public void PlayerExitJump()
+    {
+        SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("JumpExit"), transform, sfxVolume);
+    }
+
+    public void PlayerEnterWallrun()
+    {
+
+    }
+
+    public void PlayerExitWallrun()
+    {
+
+    }
+
+    public void PlayerEnterCrouch()
+    {
+
+    }
+
+    public void PlayerExitCrouch()
+    {
+
+    }
+
+    public void PlayerEnterSlide()
+    {
+
+    }
+
+    public void PlayerExitSlide()
+    {
 
     }
 }

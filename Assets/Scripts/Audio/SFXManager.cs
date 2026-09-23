@@ -1,5 +1,6 @@
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SFXManager : MonoBehaviour
 {
@@ -91,5 +92,11 @@ public class SFXManager : MonoBehaviour
         }
         Debug.Log("No sound found");
         return null;
+    }
+
+    public void StopAudio(AudioClip audioClip)
+    {
+        AudioSource audioSource = Instantiate(sfxObject);
+        audioSource.Stop();
     }
 }
