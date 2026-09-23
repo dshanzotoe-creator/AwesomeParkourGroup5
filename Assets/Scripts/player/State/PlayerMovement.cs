@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    public Vector3 GetNormalMovement(Vector3 playerForward, Vector3 playerRight,float speed, bool isGrounded, Vector2 movementInput, float gravity)
+    public Vector3 GetNormalMovement(Vector3 playerForward, Vector3 playerRight,float speed, bool isGrounded,bool isJumping, Vector2 movementInput, float gravity, float jumpForce)
     {
 
         float oldY = moveDirection.y;
@@ -21,14 +21,23 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = (playerForward * playerMovementSpeed.x) + (playerRight * playerMovementSpeed.y);
 
-
-
-        moveDirection.y = oldY;
+        if(isJumping && isGrounded)
+        {
+            moveDirection.y = jumpForce;
+        }
+        else
+        {
+            moveDirection.y = oldY;
+        }
 
         //apply gravity
         if (!isGrounded)
         {
-            moveDirection.y += gravity * Time.deltaTime;
+            if (gravity < 30){
+                moveDirection.y -= gravity * Time.deltaTime;
+            }
+            
+ 
         }
 
 

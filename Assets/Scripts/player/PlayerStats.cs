@@ -30,7 +30,7 @@ public class PlayerStats : MonoBehaviour
     {
         _health = 100f;
         _jump_force = 10f;
-        _gravity = -20f;
+        _gravity = 15f;
         _stamina = MAXSTAMINA;
     }
 

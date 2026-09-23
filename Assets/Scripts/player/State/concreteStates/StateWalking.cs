@@ -11,8 +11,8 @@ public class StateWalking : IState
 
     public void StateEnter(StateManager cxt)
     {
-        cxt.stats.SetSpeed(5f);
-        cxt.camera.setFoV(cxt.camera.nearFoV);
+        cxt.stats.SetSpeed(8f);
+       
     }
 
     public void StateExit(StateManager cxt)
@@ -23,13 +23,16 @@ public class StateWalking : IState
     public void StateUpdate(StateManager cxt)
     {
 
+         cxt.camera.setFoV(cxt.camera.nearFoV);
         cxt.controller.Move(cxt.movement.GetNormalMovement(
             cxt.playerForward, 
             cxt.playerRight, 
             cxt.stats.GetSpeed(),
             cxt.isPlayerGrounded, 
+            cxt.input.IsJumping,                    
             cxt.input.MovementInput,
-            cxt.stats.GetGravity()));
+            cxt.stats.GetGravity(),
+            cxt.stats.GetJumpForce()));
 
         if (cxt.input.IsSprinting && cxt.stats.GetStamina() > 50)
         {

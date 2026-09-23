@@ -49,7 +49,7 @@ public class PlatformCollisionMoveManager : MonoBehaviour
     }
     IEnumerator FallAfterPlayerLanding()
     {
-        float timeBeforeFall = 0.8f;
+        float timeBeforeFall = 0.5f;
         moving = true;
 
         
