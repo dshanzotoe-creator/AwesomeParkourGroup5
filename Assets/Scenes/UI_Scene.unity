@@ -1322,7 +1322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 107755826870277859, guid: 6fdc1ce36db0a854e8d0a36d3ac5a7a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8499999
+      value: 3.014
       objectReference: {fileID: 0}
     - target: {fileID: 107755826870277859, guid: 6fdc1ce36db0a854e8d0a36d3ac5a7a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1744,6 +1744,7 @@ GameObject:
   - component: {fileID: 1861153738}
   - component: {fileID: 1861153737}
   - component: {fileID: 1861153739}
+  - component: {fileID: 1861153740}
   m_Layer: 5
   m_Name: WorldTimeScorer
   m_TagString: Untagged
@@ -1825,6 +1826,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldTimer
   timeText: {fileID: 1861153737}
+  timeMax: 60
+--- !u!114 &1861153740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861153735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b6247beb59c724aa8397a89e2e50c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldScore
 --- !u!1 &1932437161
 GameObject:
   m_ObjectHideFlags: 0
