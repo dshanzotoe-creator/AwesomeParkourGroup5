@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-public class Movement : MonoBehaviour
+public class CameraScript: MonoBehaviour
 {
     private InputManager inputManager;
 
@@ -46,8 +46,6 @@ public class Movement : MonoBehaviour
 
         HandleCameraMovement();
 
-        setFoV();
-
         
     }
 
@@ -66,7 +64,7 @@ public class Movement : MonoBehaviour
     }
 
 
-    public void setFoV()
+    public void setFoV(float amount)
     {
         if (inputManager.IsSprinting)
         {

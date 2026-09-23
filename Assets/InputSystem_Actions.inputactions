@@ -482,6 +482,17 @@
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f63a9f1-0543-4609-8a36-d66dce6013e4",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;Keyboard&Mouse",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,14 +9,16 @@ public class PlayerStats : MonoBehaviour
 
     private float _jump_force;
 
-
+    private float _gravity;
     private bool isStaminaDraining;
 
     [SerializeField] private float _stamina;
-    private float _gravity;
+    
     public float Health;
     const float MAXHEALTH = 100f;
     const float MAXSTAMINA = 100f;
+
+    private float _speed = 5f;
 
 
     void Awake()
@@ -45,10 +48,22 @@ public class PlayerStats : MonoBehaviour
 
     public void RegenStamina()
     {
-            if (_stamina < MAXSTAMINA && !isStaminaDraining){
-            _stamina += 0.05f;
+            if (_stamina < MAXSTAMINA){
+            _stamina += 0.02f;
             }   
     }
+
+    public void DrainStamina(float amount)
+    {
+        _stamina -= amount;
+    }
+    public float GetStamina()
+    {
+        return _stamina;
+    }
+
+
+
     public float GetHealth() {
     return _health;
 
@@ -66,8 +81,13 @@ public class PlayerStats : MonoBehaviour
         return _gravity;
     }
 
-    public float GetStamina()
+
+    public float GetSpeed()
     {
-        return _stamina;
+        return _speed;
+    } 
+    public void SetSpeed(float speed)
+    {
+        _speed = speed;
     }
 }

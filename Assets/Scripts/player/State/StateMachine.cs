@@ -68,62 +68,9 @@ public class StateMachine : MonoBehaviour
 
     void Update()
     {
-        HandleState();
     }
 
-    private void HandleState()
-    {
 
-
-        switch (state)
-        {
-            case MovementState.StateWalking:
-
-
-                StateWalking();
-
-
-
-
-
-
-                break;
-
-
-            case MovementState.StateSprinting:
-               
-                StateSprinting();
-
-                break;
-
-
-            case MovementState.StateCrouching:
-
-                StateCrouch();
-
-
-                break;
-
-            case MovementState.StateJumping:
-
-                InitJump();
-
-                break;
-
-            default:
-
-
-
-                break;
-
-        }
-
-
-
-
-
-
-    }
 
 
 
@@ -263,13 +210,14 @@ public class StateMachine : MonoBehaviour
 
 
         float oldY = moveDirection.y;
+        Vector3 CrouchScale = new Vector3(1f, 0.5f, 1f);
 
         playerMovementSpeed = new Vector2(inputManager.MovementInput.y * walkSpeed, inputManager.MovementInput.x * walkSpeed);
 
         moveDirection = (playerForward * playerMovementSpeed.x) + (playerRight * playerMovementSpeed.y);
 
-
-       // transform.localScale.y = Mathf.Lerp(transform.localScale.y, 0.5f, 0.1f);
+       
+       transform.localScale = Vector3.Lerp(transform.localScale, CrouchScale, 0.1f);
 
         moveDirection.y = oldY;
 
