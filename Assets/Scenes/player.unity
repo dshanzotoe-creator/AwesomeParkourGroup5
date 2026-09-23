@@ -402,7 +402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4770051335037300362, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6651372724932812068, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -450,7 +450,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7333827401104031158, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333827401104031158, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: sfxVolume
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -494,9 +498,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateManager
   input: {fileID: 0}
   controller: {fileID: 0}
+  camera: {fileID: 0}
   stats: {fileID: 0}
   playerForward: {x: 0, y: 0, z: 0}
   playerRight: {x: 0, y: 0, z: 0}
+  velocity: 0
   isPlayerGrounded: 0
   movement: {fileID: 0}
 --- !u!1 &1476359771
