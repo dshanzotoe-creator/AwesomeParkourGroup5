@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class PlatformMovementManager : MonoBehaviour
 {
-    //Darren Scott
-    
-    //A short guide on how to use the Movement Manager. 
    
 
 
@@ -26,7 +23,7 @@ public class PlatformMovementManager : MonoBehaviour
 
 
 
-    [Header("Choose between 1-4. Each number gives a different cube movement.")]
+    [Header("Choose between 1-5. Each number gives a different cube movement.")]
     [SerializeField] float movementTypeNumber; 
 
 
@@ -48,7 +45,7 @@ public class PlatformMovementManager : MonoBehaviour
 
     void ChosenMovement(float number)
     {
-        number = Mathf.Clamp(number, 1,4);
+        number = Mathf.Clamp(number, 1,5);
 
 
         switch (number)
@@ -65,6 +62,9 @@ public class PlatformMovementManager : MonoBehaviour
             case 4:
                 CircularOrbit();
                 break;
+            case 5:
+                FerrisWheelOrbit();
+                break;
 
         }
            
@@ -78,16 +78,16 @@ public class PlatformMovementManager : MonoBehaviour
     }
     void BackAndForthMovement()
     {
-        float newY = startpos.y + Mathf.Cos(Time.time * frequency) * amplitude;
+        float newZ = startpos.z + Mathf.Cos(Time.time * frequency) * amplitude;
 
-        transform.position = new Vector3(startpos.x, startpos.y, newY);
+        transform.position = new Vector3(startpos.x, startpos.y, newZ);
     }
 
     void SideToSideMovement()
     {
-        float newY = startpos.y + Mathf.Cos(Time.time * frequency) * amplitude;
+        float newX = startpos.x + Mathf.Cos(Time.time * frequency) * amplitude;
 
-        transform.position = new Vector3(newY, startpos.y, startpos.z);
+        transform.position = new Vector3(newX, startpos.y, startpos.z);
     }
 
 
@@ -101,10 +101,17 @@ public class PlatformMovementManager : MonoBehaviour
         Vector3 newPosition = new Vector3(centerPoint.x + xOffset, centerPoint.y, centerPoint.z + zOffset);
 
         Vector3 moveDirection = newPosition - transform.position; 
-    
-        if(moveDirection != Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(moveDirection);
 
         transform.position = newPosition;
     } 
+
+    void FerrisWheelOrbit()
+    {
+        currentAngle += orbitSpeed * Time.deltaTime;
+        float xOffset = Mathf.Cos(currentAngle) * radius;
+        float yOffset = Mathf.Sin(currentAngle) * radius;
+        Vector3 newPosition = new Vector3(centerPoint.x + xOffset, centerPoint.y + yOffset, centerPoint.z);
+        Vector3 moveDirection = newPosition - transform.position;
+        transform.position = newPosition;
+    }
 }

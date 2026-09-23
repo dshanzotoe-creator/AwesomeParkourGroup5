@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerSFX : MonoBehaviour
 
 {
-
-
-    [SerializeField] private SFXManager sfxManager;
+    #region variables
+    [SerializeField, Tooltip("Add the SFXManager Prefab in prefab/Audio")] private SFXManager sfxManager;
     [SerializeField] private float sfxVolume;
     private float timer;
     private float clipLength;
@@ -15,20 +14,18 @@ public class PlayerSFX : MonoBehaviour
     private InputManager inputManager;
     private StateMachine stateMachine;
     private CharacterController controller;
+    #endregion
 
     void Awake()
     {
         inputManager = GetComponent<InputManager>();
         stateMachine = GetComponent<StateMachine>();
         controller = GetComponent<CharacterController>();
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         // Timer counting up from zero
         timer += Time.deltaTime;
         HandlePlayerSFX();
@@ -71,5 +68,12 @@ public class PlayerSFX : MonoBehaviour
                 timer = 0f;
             }
         }
+
+        // else if (Player sliding)
+
+        // else if (Player jumping)
+
+        // else if (Player wall running)
+
     }
 }

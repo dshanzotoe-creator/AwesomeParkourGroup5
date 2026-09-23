@@ -6,6 +6,7 @@ public class SFXManager : MonoBehaviour
     public static SFXManager Instance { get; private set; }
     [SerializeField] private AudioSource sfxObject;
     [SerializeField] private AudioClip[] audioClips;
+    private float randomPitch;
 
     private void Awake()
     {        
@@ -20,6 +21,11 @@ public class SFXManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
+
+    void Update()
+    {
+        randomPitch = Random.Range(0.95f, 1.05f);
     }
 
     public void PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
@@ -57,7 +63,7 @@ public class SFXManager : MonoBehaviour
         audioSource.volume = volume;
 
         // Assign random pitch to played audioClip
-        audioSource.pitch = Random.Range(0.95f, 1.05f);
+        audioSource.pitch = randomPitch;
 
         // Play sound, might change from PlayOneShot to just Play() in the future since the if-statement theoretically stops all the sounds from playing at once
         audioSource.Play();
