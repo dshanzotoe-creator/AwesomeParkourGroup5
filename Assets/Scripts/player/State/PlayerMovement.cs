@@ -55,4 +55,9 @@ public class PlayerMovement : MonoBehaviour
         return totalPlayerMovement + finalPlatformMovement;
          // Reset platform movement after applying it
     }
+
+    public void SetPlatformMovement(Vector3 delta)
+    {
+        platformMovementDelta = delta;
+    }
 }
