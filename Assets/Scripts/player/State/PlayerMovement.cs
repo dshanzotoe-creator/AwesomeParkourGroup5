@@ -7,15 +7,12 @@ public class PlayerMovement : MonoBehaviour
         [Header("Movement")]
     private Vector3 platformMovementDelta = Vector3.zero;
     private Vector3 moveDirection = Vector3.zero;
-    private Vector3 playerForward;
-    private Vector3 playerRight;
     private Vector2 playerMovementSpeed;
-    private float walkSpeed;
 
 
 
 
-    public Vector3 GetMovement(Vector3 playerForward, Vector3 playerRight,float speed, bool isGrounded, Vector2 movementInput, float gravity)
+    public Vector3 GetNormalMovement(Vector3 playerForward, Vector3 playerRight,float speed, bool isGrounded, Vector2 movementInput, float gravity)
     {
 
         float oldY = moveDirection.y;

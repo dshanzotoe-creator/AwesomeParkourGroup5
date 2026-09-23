@@ -4,7 +4,7 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     
-    [SerializeField] IState _currentState;
+    public IState _currentState;
     
     public StateIdle stateIdle = new StateIdle();
     public StateCrouching stateCrouching = new StateCrouching();
@@ -16,11 +16,13 @@ public class StateManager : MonoBehaviour
     public InputManager input;
     public CharacterController controller;
 
+    public CameraScript camera;
+
     public PlayerStats stats;
 
     public Vector3 playerForward;
     public Vector3 playerRight;
-
+    [SerializeField] float velocity;
     public bool isPlayerGrounded;
 
     public PlayerMovement movement;
@@ -34,6 +36,7 @@ public class StateManager : MonoBehaviour
         controller = GetComponent<CharacterController>();
         movement = GetComponent<PlayerMovement>();
         stats = GetComponent<PlayerStats>();
+        camera = GetComponent<CameraScript>();
         _currentState = stateIdle;
         _currentState.StateEnter(this);
     }
@@ -46,7 +49,7 @@ public class StateManager : MonoBehaviour
         GetTransformRot();
 
         _currentState.StateUpdate(this);
-        
+        velocity = stats.GetSpeed();
     }
 
     public void ChangeState(IState next)
@@ -54,7 +57,7 @@ public class StateManager : MonoBehaviour
         _currentState.StateExit(this);
         _currentState = next;
         _currentState.StateEnter(this);
-
+  
     }
 
     private void GetTransformRot()

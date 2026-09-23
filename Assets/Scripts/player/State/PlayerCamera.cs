@@ -46,8 +46,6 @@ public class CameraScript: MonoBehaviour
 
         HandleCameraMovement();
 
-        setFoV();
-
         
     }
 
@@ -66,7 +64,7 @@ public class CameraScript: MonoBehaviour
     }
 
 
-    public void setFoV()
+    public void setFoV(float amount)
     {
         if (inputManager.IsSprinting)
         {

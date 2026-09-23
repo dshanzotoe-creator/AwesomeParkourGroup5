@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -47,10 +48,22 @@ public class PlayerStats : MonoBehaviour
 
     public void RegenStamina()
     {
-            if (_stamina < MAXSTAMINA && !isStaminaDraining){
-            _stamina += 0.05f;
+            if (_stamina < MAXSTAMINA){
+            _stamina += 0.02f;
             }   
     }
+
+    public void DrainStamina(float amount)
+    {
+        _stamina -= amount;
+    }
+    public float GetStamina()
+    {
+        return _stamina;
+    }
+
+
+
     public float GetHealth() {
     return _health;
 
@@ -68,10 +81,6 @@ public class PlayerStats : MonoBehaviour
         return _gravity;
     }
 
-    public float GetStamina()
-    {
-        return _stamina;
-    }
 
     public float GetSpeed()
     {
