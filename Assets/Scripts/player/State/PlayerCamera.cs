@@ -10,7 +10,7 @@ public class CameraScript: MonoBehaviour
     private InputManager inputManager;
 
 
-    private Camera camera;
+    [SerializeField] Camera camera;
 
 
 
@@ -32,7 +32,7 @@ public class CameraScript: MonoBehaviour
     void Awake()
     {
         inputManager = GetComponent<InputManager>();
-        camera = GetComponent<Camera>();
+
 
     }
     void Start()
