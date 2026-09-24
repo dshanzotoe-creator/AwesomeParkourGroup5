@@ -8,7 +8,6 @@ public class PlayerSFX : MonoBehaviour
     #region variables
     [SerializeField, Tooltip("Add the SFXManager Prefab in prefab/Audio")] private SFXManager sfxManager;
     [SerializeField] private float sfxVolume;
-    [SerializeField] private float sfxdelay;
 
     private float timer;
 
@@ -119,41 +118,11 @@ public class PlayerSFX : MonoBehaviour
 
     public void PlayerEnterJump()
     {
-
+        SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Step"), transform, sfxVolume);
     }
 
     public void PlayerExitJump()
     {
         SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("JumpExit"), transform, sfxVolume);
-    }
-
-    public void PlayerEnterWallrun()
-    {
-
-    }
-
-    public void PlayerExitWallrun()
-    {
-
-    }
-
-    public void PlayerEnterCrouch()
-    {
-
-    }
-
-    public void PlayerExitCrouch()
-    {
-
-    }
-
-    public void PlayerEnterSlide()
-    {
-
-    }
-
-    public void PlayerExitSlide()
-    {
-
     }
 }

@@ -34,6 +34,11 @@ public class StateWalking : IState
             cxt.stats.GetGravity(),
             cxt.stats.GetJumpForce()));
 
+        if (cxt.isPlayerGrounded && !cxt.input.IsSprinting)
+        {
+            cxt.playerSFX.PlayerWalkEnter();
+        }
+
         if (cxt.input.IsSprinting && cxt.stats.GetStamina() > 50)
         {
             cxt.ChangeState(cxt.stateSprinting);

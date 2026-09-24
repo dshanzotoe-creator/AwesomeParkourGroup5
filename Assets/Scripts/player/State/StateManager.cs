@@ -78,24 +78,28 @@ public class StateManager : MonoBehaviour
         else
         {
             isPlayerGrounded = false;
+        }    
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {            
+
+
+        if (other.gameObject.CompareTag("Platforms"))
+        {                
+            Debug.Log("Touching grass");
         }
-
-
-    
     }
 
-    private void OnTriggerEnter(Collider collision)
+    void OnTriggerExit(Collider other)
     {
-        Debug.Log("Touched grass");
 
-        //if (collision.gameObject.CompareTag("Platforms"))
-        //{
-        //    playerSFX.PlayerExitJump();
-            
-        //}
 
+        if (other.gameObject.CompareTag("Platforms"))
+        {        
+            Debug.Log("Left grass");
+        }
     }
-
-
 }
 
