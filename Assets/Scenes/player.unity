@@ -388,6 +388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 45349172941968604, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 457780702994425018, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: m_Actions
       value: 
@@ -517,7 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateManager
   input: {fileID: 0}
   controller: {fileID: 0}
-  camera: {fileID: 0}
+  cameraScript: {fileID: 0}
   stats: {fileID: 0}
   playerSFX: {fileID: 0}
   playerForward: {x: 0, y: 0, z: 0}
