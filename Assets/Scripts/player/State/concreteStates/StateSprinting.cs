@@ -45,12 +45,6 @@ public class StateSprinting : IState
 
         
 
-        if (cxt.input.IsCrouching)
-        {
-            cxt.ChangeState(cxt.stateCrouching);
-        }
-
-        cxt.stats.DrainStamina(0.1f);
     }
 
 }

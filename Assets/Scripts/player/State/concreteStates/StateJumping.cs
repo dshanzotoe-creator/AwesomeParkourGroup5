@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.XR;
-using static StateMachine;
+
 
 
 public class StateJumping : IState

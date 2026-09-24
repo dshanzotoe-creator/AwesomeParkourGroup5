@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.XR;
-using static StateMachine;
+
 
 public class StateWalking : IState
 {
@@ -44,16 +44,16 @@ public class StateWalking : IState
             cxt.ChangeState(cxt.stateJumping);
         }
 
-        if (cxt.input.IsCrouching)
-        { 
-            cxt.ChangeState(cxt.stateCrouching);
-        }
 
         if(cxt.controller.velocity == Vector3.zero)
         {
             cxt.ChangeState(cxt.stateIdle);
         }
 
-        cxt.stats.RegenStamina();
+        if (cxt.controller.isGrounded)
+        {
+            cxt.stats.RegenStamina();
+        }
+        
     }
 }

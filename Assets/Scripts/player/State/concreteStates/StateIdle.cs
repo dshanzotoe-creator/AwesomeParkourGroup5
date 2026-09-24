@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.XR;
-using static StateMachine;
 
 public class StateIdle : IState
 {
@@ -18,6 +17,8 @@ public class StateIdle : IState
 
     public void StateUpdate(StateManager cxt) 
     {
+
+        cxt.cameraScript.setFoV(cxt.cameraScript.nearFoV);
         if (cxt.input.IsWalking)
         {
             cxt.ChangeState(cxt.stateWalking);
