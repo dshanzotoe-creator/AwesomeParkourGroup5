@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 7784751396497124151}
   - component: {fileID: 7333827401104031158}
   - component: {fileID: 4770051335037300362}
+  - component: {fileID: 7782928846897342059}
+  - component: {fileID: 8008560368557038443}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -190,6 +192,40 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45349172941968604}
   m_Enabled: 1
+--- !u!114 &7782928846897342059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a036cb22285b43e40b9f0bd1e0ebb906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StateManager
+  input: {fileID: 0}
+  controller: {fileID: 0}
+  cameraScript: {fileID: 0}
+  stats: {fileID: 0}
+  playerSFX: {fileID: 0}
+  playerForward: {x: 0, y: 0, z: 0}
+  playerRight: {x: 0, y: 0, z: 0}
+  velocity: 0
+  isPlayerGrounded: 0
+  movement: {fileID: 0}
+--- !u!114 &8008560368557038443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45349172941968604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a7a73c5f15045a19a2033f5d700503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1 &1838257440059744252
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +236,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7088045866636134038}
   - component: {fileID: 8026503178143426866}
-  - component: {fileID: 5618479842183288825}
   - component: {fileID: 8279219969450230821}
   m_Layer: 0
   m_Name: Camera
@@ -275,14 +310,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5618479842183288825
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838257440059744252}
-  m_Enabled: 1
 --- !u!114 &8279219969450230821
 MonoBehaviour:
   m_ObjectHideFlags: 0
