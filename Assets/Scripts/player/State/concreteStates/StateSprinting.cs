@@ -29,11 +29,13 @@ public class StateSprinting : IState
         cxt.input.MovementInput,
         cxt.stats.GetGravity(),
         cxt.stats.GetJumpForce()));
+                     
 
-        if (cxt.isPlayerGrounded && cxt.input.IsSprinting)
+       if (cxt.isPlayerGrounded)
         {
-            cxt.playerSFX.PlayerRunEnter();
+            cxt.playerSFX.PlayerRunSteps();
         }
+
 
         if (cxt.stats.GetStamina() <= 0 || !cxt.input.IsSprinting)
         {

@@ -92,25 +92,18 @@ public class PlayerSFX : MonoBehaviour
         }
     }
 
-    public void PlayerWalkExit()
+    public void PlayerRunSteps()
     {
-        SFXManager.Instance.StopAudio(SFXManager.Instance.GetAudioClip("Step"));
-    }
-
-    public void PlayerRunEnter()
-    {
-        
-        float clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Breathing"));
+        float clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Running"));
 
         if (timer >= clipLength)
         {
             // Play sounds that contains the relevant terms, ie "running" or "breathing"
-            SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Breathing"), transform, sfxVolume);
+            SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Running"), transform, sfxVolume);
 
             // Resets timer so that the AudioClip can be played again
             timer = 0f;
-        }     
-
+        }
     }
 
     public void PlayerJumpEnter()

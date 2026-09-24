@@ -78,7 +78,8 @@ public class SFXManager : MonoBehaviour
 
     public float GetClipLength(AudioClip clip)
     {
-        return clip.length;
+        float clipLength = clip.length;
+        return clipLength;
     }
 
     public AudioClip GetAudioClip(string clipToPlay)
