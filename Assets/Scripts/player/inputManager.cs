@@ -8,7 +8,6 @@ public class InputManager : MonoBehaviour
     private InputAction movementAction;
     private InputAction cameraMovement;
 
-    private InputAction crouchAction;
 
     private InputAction jumpAction;
 
@@ -20,7 +19,6 @@ public class InputManager : MonoBehaviour
     public Vector2 CameraMovement;
 
     public bool IsJumping;
-    public bool IsCrouching;
 
     public bool IsSprinting;
 
@@ -37,7 +35,6 @@ public class InputManager : MonoBehaviour
         input = GetComponent<PlayerInput>();
         movementAction = input.actions["Move"];
         cameraMovement = input.actions["Look"];
-        crouchAction = input.actions["Crouch"];
         jumpAction = input.actions["Jump"];
         sprintAction = input.actions["Sprint"];
 
@@ -48,8 +45,6 @@ public class InputManager : MonoBehaviour
         sprintAction.started += Sprinting;
         sprintAction.canceled += Sprinting;
 
-        crouchAction.started += Crouching;
-        crouchAction.canceled += Crouching;
 
         movementAction.started += Walking;
         movementAction.canceled += Walking;
@@ -106,13 +101,6 @@ public class InputManager : MonoBehaviour
         if(_.started) IsSprinting = true;
 
         if(_.canceled) IsSprinting = false;
-    }
-
-    private void Crouching(InputAction.CallbackContext _) {
-
-        if (_.started) { IsCrouching = true; }
-    
-        if (_.canceled) { IsCrouching = false; }
     }
 
 

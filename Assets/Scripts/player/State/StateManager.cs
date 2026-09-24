@@ -7,7 +7,6 @@ public class StateManager : MonoBehaviour
     public IState _currentState;
     
     public StateIdle stateIdle = new StateIdle();
-    public StateCrouching stateCrouching = new StateCrouching();
     public StateWalking stateWalking = new StateWalking();
     public StateSprinting stateSprinting = new StateSprinting();
     public StateJumping stateJumping = new StateJumping();
@@ -15,7 +14,6 @@ public class StateManager : MonoBehaviour
 
     public InputManager input;
     public CharacterController controller;
-
     public CameraScript cameraScript;
 
     
