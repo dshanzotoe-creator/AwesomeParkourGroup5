@@ -468,18 +468,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7333827401104031158, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
-      propertyPath: sfxVolume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9057244338192223192, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9057244338192223192, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
-      propertyPath: m_Center.y
-      value: -0.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -755,14 +743,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
-      propertyPath: audioClips.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
-      propertyPath: 'audioClips.Array.data[5]'
-      value: 
-      objectReference: {fileID: 8300000, guid: db4371fb11cee6c4ab0600ba9670aee6, type: 3}
     - target: {fileID: 8239063787068479499, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
