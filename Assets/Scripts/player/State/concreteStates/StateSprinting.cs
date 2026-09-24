@@ -18,7 +18,7 @@ public class StateSprinting : IState
     public void StateUpdate(StateManager cxt)
     {
 
-        cxt.camera.setFoV(cxt.camera.farFoV);
+        cxt.cameraScript.setFoV(cxt.cameraScript.farFoV);
 
         cxt.controller.Move(cxt.movement.GetNormalMovement(
         cxt.playerForward,

@@ -23,7 +23,7 @@ public class StateWalking : IState
     public void StateUpdate(StateManager cxt)
     {
 
-         cxt.camera.setFoV(cxt.camera.nearFoV);
+         cxt.cameraScript.setFoV(cxt.cameraScript.nearFoV);
         cxt.controller.Move(cxt.movement.GetNormalMovement(
             cxt.playerForward, 
             cxt.playerRight, 

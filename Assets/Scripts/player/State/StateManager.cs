@@ -16,7 +16,9 @@ public class StateManager : MonoBehaviour
     public InputManager input;
     public CharacterController controller;
 
-    public CameraScript camera;
+    public CameraScript cameraScript;
+
+    
 
     public PlayerStats stats;
 
@@ -38,7 +40,7 @@ public class StateManager : MonoBehaviour
         controller = GetComponent<CharacterController>();
         movement = GetComponent<PlayerMovement>();
         stats = GetComponent<PlayerStats>();
-        camera = GetComponent<CameraScript>();
+        cameraScript = GetComponent<CameraScript>();
         playerSFX = GetComponent<PlayerSFX>();
         _currentState = stateIdle;
         _currentState.StateEnter(this);
@@ -65,8 +67,8 @@ public class StateManager : MonoBehaviour
 
     private void GetTransformRot()
     {
-        playerForward = camera.transform.TransformDirection(Vector3.forward);
-        playerRight = camera.transform.TransformDirection(Vector3.right);
+        playerForward = cameraScript.camera.transform.TransformDirection(Vector3.forward);
+        playerRight = cameraScript.camera.transform.TransformDirection(Vector3.right);
     }
 
     private void GetGround()
@@ -86,10 +88,13 @@ public class StateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Platforms"))
-        {
-            playerSFX.PlayerExitJump();
-        }
+        Debug.Log("Touched grass");
+
+        //if (collision.gameObject.CompareTag("Platforms"))
+        //{
+        //    playerSFX.PlayerExitJump();
+            
+        //}
 
     }
 

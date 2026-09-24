@@ -10,7 +10,7 @@ public class CameraScript: MonoBehaviour
     private InputManager inputManager;
 
 
-    [SerializeField] Camera camera;
+    [SerializeField] public Camera camera;
 
 
 
