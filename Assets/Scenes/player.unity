@@ -460,6 +460,10 @@ PrefabInstance:
       propertyPath: sfxVolume
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 9057244338192223192, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
