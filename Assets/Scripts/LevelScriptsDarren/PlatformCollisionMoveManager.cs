@@ -13,13 +13,17 @@ public class PlatformCollisionMoveManager : MonoBehaviour
 
     Quaternion originalRotation;
 
+    PlatformMovementManager platformMovementManager;
+
     bool moving = false;
 
     MeshRenderer meshRenderer;
 
     [SerializeField] BoxCollider boxCollider;
 
-    [SerializeField] Collider childBoxCollider; 
+    [SerializeField] Collider childBoxCollider;
+
+    [SerializeField] float timeBeforeFall = 1.5f;
 
     Coroutine spinRoutine; 
 
@@ -31,6 +35,11 @@ public class PlatformCollisionMoveManager : MonoBehaviour
         meshRenderer = gameObject.GetComponent<MeshRenderer>();
         boxCollider = gameObject.GetComponent<BoxCollider>();
         childBoxCollider = transform.GetChild(0).GetComponent<Collider>();
+
+        if(platformMovementManager == null)
+        {
+            platformMovementManager = GetComponent<PlatformMovementManager>();
+        }
     }
 
     // Update is called once per frame
@@ -49,11 +58,14 @@ public class PlatformCollisionMoveManager : MonoBehaviour
     }
     IEnumerator FallAfterPlayerLanding()
     {
-        float timeBeforeFall = 0.5f;
+        float _timeBeforeFall = timeBeforeFall;
         moving = true;
 
         
-        yield return new WaitForSeconds(timeBeforeFall);
+
+        yield return new WaitForSeconds(_timeBeforeFall);
+
+        if (platformMovementManager != null) platformMovementManager.enabled = false;
 
         while (transform.position.y > startPos.y - 10f) 
         {
@@ -65,11 +77,14 @@ public class PlatformCollisionMoveManager : MonoBehaviour
         boxCollider.enabled = false;
         childBoxCollider.enabled = false;
 
+     
+
         yield return new WaitForSeconds(1f);
 
         meshRenderer.enabled = true;
         boxCollider.enabled = true;
         childBoxCollider.enabled = true;
+        if (platformMovementManager != null) platformMovementManager.enabled = true;
 
         while (transform.position.y < startPos.y)
         {
