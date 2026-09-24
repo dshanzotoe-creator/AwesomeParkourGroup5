@@ -58,8 +58,8 @@ public class CameraScript: MonoBehaviour
         lookAngleX += inputManager.CameraMovement.x;
         lookAngleY = Mathf.Clamp(lookAngleY, -lookAngleLimit, lookAngleLimit);
 
-        transform.localRotation = Quaternion.Euler(lookAngleY,0f,0f);
-        transform.rotation = Quaternion.Euler(lookAngleY,lookAngleX, 0);
+        camera.transform.localRotation = Quaternion.Euler(lookAngleY,0f,0f);
+        camera.transform.rotation = Quaternion.Euler(lookAngleY,lookAngleX, 0);
         
     }
 

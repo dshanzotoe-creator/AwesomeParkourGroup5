@@ -62,8 +62,8 @@ public class StateManager : MonoBehaviour
 
     private void GetTransformRot()
     {
-        playerForward = transform.TransformDirection(Vector3.forward);
-        playerRight = transform.TransformDirection(Vector3.right);
+        playerForward = camera.transform.TransformDirection(Vector3.forward);
+        playerRight = camera.transform.TransformDirection(Vector3.right);
     }
 
     private void GetGround()
