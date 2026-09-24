@@ -388,6 +388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 457780702994425018, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 1074086200755803031, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: IsJumping
       value: 0
@@ -503,6 +507,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   camera: {fileID: 0}
   stats: {fileID: 0}
+  playerSFX: {fileID: 0}
   playerForward: {x: 0, y: 0, z: 0}
   playerRight: {x: 0, y: 0, z: 0}
   velocity: 0

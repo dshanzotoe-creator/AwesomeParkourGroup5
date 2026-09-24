@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c16bf322f68c646afafd58fddafbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
-  camera: {fileID: 0}
+  camera: {fileID: 8026503178143426866}
   nearFoV: 70
   farFoV: 90
 --- !u!114 &7333827401104031158
