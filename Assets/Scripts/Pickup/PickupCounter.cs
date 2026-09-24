@@ -19,6 +19,7 @@ public class PickupCounter : MonoBehaviour
     public void DecrementPickups()
     {
         remainingPickups -= heldPickups;
+        SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("InsertCollector"), transform, 0.5f);   //Plays sound when delivering pickups to collector
         heldPickups = 0;
     }
 
