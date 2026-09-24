@@ -83,21 +83,19 @@ public class StateManager : MonoBehaviour
 
 
     void OnTriggerEnter(Collider other)
-    {            
-
-
+    {          
         if (other.gameObject.CompareTag("Platforms"))
-        {                
+        {
+            playerSFX.PlayerJumpExit();
             Debug.Log("Touching grass");
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-
-
         if (other.gameObject.CompareTag("Platforms"))
-        {        
+        {
+            playerSFX.PlayerJumpEnter();
             Debug.Log("Left grass");
         }
     }

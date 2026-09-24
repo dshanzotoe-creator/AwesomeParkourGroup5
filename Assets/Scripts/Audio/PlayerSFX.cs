@@ -97,9 +97,9 @@ public class PlayerSFX : MonoBehaviour
         SFXManager.Instance.StopAudio(SFXManager.Instance.GetAudioClip("Step"));
     }
 
-    public void PlayerRun()
+    public void PlayerRunEnter()
     {
-        /*
+        
         float clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Breathing"));
 
         if (timer >= clipLength)
@@ -109,19 +109,16 @@ public class PlayerSFX : MonoBehaviour
 
             // Resets timer so that the AudioClip can be played again
             timer = 0f;
-        }
-        */
-
-        SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Breathing"), transform, sfxVolume);
+        }     
 
     }
 
-    public void PlayerEnterJump()
+    public void PlayerJumpEnter()
     {
-        SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Step"), transform, sfxVolume);
+        SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("JumpEnter"), transform, sfxVolume);
     }
 
-    public void PlayerExitJump()
+    public void PlayerJumpExit()
     {
         SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("JumpExit"), transform, sfxVolume);
     }
