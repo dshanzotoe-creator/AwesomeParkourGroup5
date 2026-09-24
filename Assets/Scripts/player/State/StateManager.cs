@@ -20,6 +20,8 @@ public class StateManager : MonoBehaviour
 
     public PlayerStats stats;
 
+    public PlayerSFX playerSFX;
+
     public Vector3 playerForward;
     public Vector3 playerRight;
     [SerializeField] float velocity;
@@ -37,6 +39,7 @@ public class StateManager : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         stats = GetComponent<PlayerStats>();
         camera = GetComponent<CameraScript>();
+        playerSFX = GetComponent<PlayerSFX>();
         _currentState = stateIdle;
         _currentState.StateEnter(this);
     }
@@ -80,7 +83,16 @@ public class StateManager : MonoBehaviour
 
     
     }
-   
-    
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Platforms"))
+        {
+            playerSFX.PlayerExitJump();
+        }
+
+    }
+
+
 }
 

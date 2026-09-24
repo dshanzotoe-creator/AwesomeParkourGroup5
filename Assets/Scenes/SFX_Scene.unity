@@ -140,6 +140,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   camera: {fileID: 0}
   stats: {fileID: 0}
+  playerSFX: {fileID: 0}
   playerForward: {x: 0, y: 0, z: 0}
   playerRight: {x: 0, y: 0, z: 0}
   velocity: 0
@@ -168,6 +169,10 @@ PrefabInstance:
     - target: {fileID: 45349172941968604, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 45349172941968604, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6651372724932812068, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,6 +217,14 @@ PrefabInstance:
     - target: {fileID: 7333827401104031158, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
       propertyPath: sfxVolume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057244338192223192, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_Center.y
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057244338192223192, guid: bfc91836f323a4444ac9b3898994d6ea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -662,7 +675,7 @@ GameObject:
   - component: {fileID: 1829482254}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Platforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,6 +782,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761855523467375033, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
+      propertyPath: 'audioClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0488b8542c6050941819871e7c198b7c, type: 3}
     - target: {fileID: 8239063787068479499, guid: 2dec5a3c641fb134b8e5f0e850f32684, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
