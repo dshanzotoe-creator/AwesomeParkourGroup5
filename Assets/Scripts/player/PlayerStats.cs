@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     
     public float Health;
     const float MAXHEALTH = 100f;
-    const float MAXSTAMINA = 100f;
+    private const float MAXSTAMINA = 100f;
 
     private float _speed = 5f;
 
