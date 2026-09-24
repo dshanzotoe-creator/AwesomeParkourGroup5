@@ -28,66 +28,20 @@ public class PlayerSFX : MonoBehaviour
     {
         // Timer counting up from zero
         timer += Time.deltaTime;
-        // HandlePlayerSFX();
     }
-
-    /*private void HandlePlayerSFX()
-    {
-        // If the player is not running, crouching and not standing still, play the walking sounds
-        if (!inputManager.IsSprinting && !inputManager.IsJumping && !inputManager.IsCrouching )
-        {
-            clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Step"));
-
-            // Marked the below if-statement to avoid to hear the walking steps until the above if-statement is working
-
-            /*
-            // If the timer is more or equal to the length of the current clip, play the next sound
-            if (timer >= clipLength)
-            {
-                // Play sounds that contains the relevant terms, ie "running" or "breathing"
-                SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Step"), transform, sfxVolume);
-
-                // Resets timer so that the AudioClip can be played again
-                timer = 0f;
-            }
-            
-        }
-        
-        // If the Player is sprinting
-        else if (inputManager.IsSprinting)
-        {                
-            float clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Breathing"));
-
-            // If the timer is more or equal to the length of the current clip, play the next sound
-            if (timer >= clipLength)
-            {
-                // Play sounds that contains the relevant terms, ie "running" or "breathing"
-                SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Breathing"), transform, sfxVolume);
-                
-                // Resets timer so that the AudioClip can be played again
-                timer = 0f;
-            }
-        }
-
-        // else if (Player sliding)
-
-        // else if (Player jumping)
-
-        // else if (Player wall running)
-
-    }*/
 
     public void PlayerWalkEnter()
     {
+        // Calls for the length of the clip to be played within this method
         float clipLength = SFXManager.Instance.GetClipLength(SFXManager.Instance.GetAudioClip("Step"));
 
-
+        // If timer is equal or more than the length of the audio clip, play the audio clip
+        // and then reset timer, to stop several sounds to be played at once
         if (timer >= clipLength)
         {
-            // Play sounds that contains the relevant terms, ie "running" or "breathing"
+            // Play sounds that contains the relevant terms, ie "running" or "breathing" from the
+            // SFX Manager
             SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Step"), transform, sfxVolume);
-
-            // Resets timer so that the AudioClip can be played again
             timer = 0f;        
         }
     }
@@ -98,10 +52,7 @@ public class PlayerSFX : MonoBehaviour
 
         if (timer >= clipLength)
         {
-            // Play sounds that contains the relevant terms, ie "running" or "breathing"
             SFXManager.Instance.PlaySFXClipRandomPitch(SFXManager.Instance.GetAudioClip("Running"), transform, sfxVolume);
-
-            // Resets timer so that the AudioClip can be played again
             timer = 0f;
         }
     }

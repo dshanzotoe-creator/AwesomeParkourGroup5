@@ -29,27 +29,6 @@ public class SFXManager : MonoBehaviour
         randomPitch = Random.Range(0.95f, 1.05f);
     }
 
-    public void PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
-    { 
-        // Spawn in gameObject
-        AudioSource audioSource = Instantiate(sfxObject, spawnTransform.position, Quaternion.identity);
-
-        // Assign audioClip that is being passed in above
-        audioSource.clip = audioClip;
-
-        // Assign volume
-        audioSource.volume = volume;
-
-        // Play sound
-        audioSource.Play();
-
-        // Get length of SFX
-        float clipLength = audioSource.clip.length;
-
-         // Destroy SFX after it's done playing
-        Destroy(audioSource.gameObject, clipLength);
-    }
-
     public void PlaySFXClipRandomPitch(AudioClip audioClip, Transform spawnTransform, float volume)
     {
         if (audioClip == null) return;
@@ -57,7 +36,6 @@ public class SFXManager : MonoBehaviour
         // Spawn in gameObject
         AudioSource audioSource = Instantiate(sfxObject, spawnTransform.position, Quaternion.identity);
 
-        // Assign audioClip randomly selected thanks to the int rand above
         audioSource.clip = audioClip;
 
         // Assign volume
@@ -66,7 +44,6 @@ public class SFXManager : MonoBehaviour
         // Assign random pitch to played audioClip
         audioSource.pitch = randomPitch;
 
-        // Play sound, might change from PlayOneShot to just Play() in the future since the if-statement theoretically stops all the sounds from playing at once
         audioSource.Play();
 
         // Changes clipLength to the length of the audioSource
@@ -75,13 +52,16 @@ public class SFXManager : MonoBehaviour
         // Destroy SFX after it's done playing
         Destroy(audioSource.gameObject, clipLength);
     }
-
+    
+    // Method that helps other scripts to receive the current audio clips length
     public float GetClipLength(AudioClip clip)
     {
         float clipLength = clip.length;
         return clipLength;
     }
 
+    // Makes other scripts able to call upon specific SFX depending on the name of the audio clip
+    // If there isn't any SFX with the requested name, a debug.log will be sent
     public AudioClip GetAudioClip(string clipToPlay)
     {
         foreach (AudioClip clip in audioClips)
@@ -93,11 +73,5 @@ public class SFXManager : MonoBehaviour
         }
         Debug.Log("No sound found");
         return null;
-    }
-
-    public void StopAudio(AudioClip audioClip)
-    {
-        AudioSource audioSource = Instantiate(sfxObject);
-        audioSource.Stop();
     }
 }
