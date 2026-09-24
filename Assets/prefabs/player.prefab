@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
   MovementInput: {x: 0, y: 0}
   CameraMovement: {x: 0, y: 0}
-  IsJumping: 1
+  IsJumping: 0
   IsCrouching: 0
   IsSprinting: 0
   IsIdle: 0
