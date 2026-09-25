@@ -48,3 +48,6 @@ MonoBehaviour:
   - id: BasicPickUp
     prefab: {fileID: 2206403846920661545, guid: 1850b08e28c5d1a4cb5f0f3a1dd8349e, type: 3}
     destroyDelay: 1.3
+  - id: BasicDeposit
+    prefab: {fileID: 3668777392295668118, guid: a21375dd4598fd74a8359839c0d2ae5a, type: 3}
+    destroyDelay: 1.3
