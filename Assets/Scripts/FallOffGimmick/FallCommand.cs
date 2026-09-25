@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FallCommand : MonoBehaviour
@@ -12,13 +11,14 @@ public class FallCommand : MonoBehaviour
 
     void Start()
     {
-        voidAnchor = GameObject.Find("VoidAnchor").transform;
+        GameObject _voidAnchor = GameObject.Find("VoidAnchor");
+        voidAnchor = _voidAnchor.transform;
         player = GameObject.Find("Player").transform;
-        if (GameObject.Find("VoidAnchor")) { bottom = voidAnchor.position.y; }
+        if (_voidAnchor != null) { bottom = voidAnchor.position.y;  Debug.Log("VoidAnchor found"); }
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (player.position.y < bottom)
         {

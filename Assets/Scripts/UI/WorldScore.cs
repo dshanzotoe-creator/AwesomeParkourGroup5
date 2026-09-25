@@ -11,12 +11,12 @@ public class WorldScore : MonoBehaviour
     private void Start()
     {
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
-        highScoreText.text = highScore.ToString();
+        highScoreText.text = "High Score: " + highScore.ToString();
     }
 
     private void Update()
     {
-        currentScore.text = score.ToString();
+        currentScore.text = "Current Score: " + score.ToString();
     }
 
     public void SetScore(float time)

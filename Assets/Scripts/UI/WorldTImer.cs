@@ -16,7 +16,7 @@ public class WorldTimer : MonoBehaviour
     {
         worldScore = GetComponent<WorldScore>();
 
-        timeMax = 300;
+        timeMax = 600;
     }
 
     void Update()

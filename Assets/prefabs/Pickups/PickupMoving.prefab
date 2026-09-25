@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupMovementAnchor
   maxSpeedBoost: 6.5
-  floatDistance: 0
+  floatDistance: 3
 --- !u!114 &7576435798249081603
 MonoBehaviour:
   m_ObjectHideFlags: 0

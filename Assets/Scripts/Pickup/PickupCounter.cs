@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class PickupCounter : MonoBehaviour
 {
-    int maxPickups = 10;
-    [SerializeField] int remainingPickups = 10;
+    [SerializeField] int remainingPickups;
     [SerializeField] int heldPickups = 0;
     
     void Start()
     {
-        remainingPickups = maxPickups;
+ 
     }
 
     public void AddPickup()
