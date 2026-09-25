@@ -27,6 +27,7 @@ public class PlayerPickupHandler : MonoBehaviour
             if (pickupCounter.ReportHeldPickups() > 0)
             {
                 pickupCounter.DecrementPickups();
+                VFXManager.Instance.PlayVFX("BasicDeposit", transform.position);
             }
         }
     }
