@@ -1,6 +1,4 @@
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class SFXManager : MonoBehaviour
 {
